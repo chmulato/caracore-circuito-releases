@@ -25,7 +25,7 @@ Filial do **Circuito Python** da Cara Core Informática: balcão de vendas, cana
 O site da filial é publicado via **GitHub Pages** a partir da pasta `docs/`:
 
 - Configurar em: **Settings → Pages → Source:** Deploy from a branch → Branch: main (ou master) → Folder: **/docs**.
-- URL do site: `https://<user>.github.io/circuito-python-releases/`
+- URL do site: `https://chmulato.github.io/circuito-python-releases/`
 
 ## Links
 
