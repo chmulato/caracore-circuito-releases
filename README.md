@@ -1,22 +1,22 @@
-# circuito-python-releases
+# circuito-circuito-releases (filial do Circuito Ferradura)
 
-Filial do **Circuito Python** da Cara Core Informática: balcão de vendas, canal de feedback e portal para instituições de ensino. Segue a mesma lógica do produto **chmulatoETE Minerador 4.0** (versão FREE para pessoas físicas; uso institucional com licença obrigatória).
+Filial do **Circuito Ferradura** da Cara Core Informática (refatoração do antigo **Circuito Python**): balcão de vendas, canal de feedback e portal para instituições de ensino. Segue a mesma lógica do produto **chmulatoETE Minerador 4.0** (versão gratuita para pessoas físicas; uso institucional com licença obrigatória).
 
-## Circuito Python — Visão geral
+## Circuito Ferradura — Visão geral
 
-- **Produto:** Curso de Python para **jovens entusiastas e curiosos da programação**, foco em negócios e dores dos clientes.
-- **Versão FREE (pessoas físicas):** uso sob **Licença MIT** — estudo e uso pessoal, sem custo.
-- **Instituições de ensino (Brasil):** uso do curso em ambiente escolar (sala de aula ou laboratório) **não** está coberto pela licença gratuita. É **obrigatória** a contratação de licença: **R$ 5,00 (cinco reais) mensais por aluno matriculado**, valor recorrente.
+- **Produto:** Curso de lógica, ábaco romano e programação Python para **jovens entusiastas e curiosos da programação**, foco em negócios e dores dos clientes.
+- **Versão gratuita (pessoas físicas):** uso gratuito para estudo e uso pessoal. O curso, as narrativas e os materiais do Circuito Ferradura são **propriedade exclusiva** da Cara Core Informática (não é open source; consulte a licença completa no repositório do curso).
+- **Instituições de ensino (Brasil):** uso do curso em ambiente escolar (sala de aula ou laboratório) **não** está coberto pela gratuidade. É **obrigatória** a contratação de licença: **R$ 5,00 (cinco reais) mensais por aluno matriculado**, valor recorrente.
 - **Responsabilização legal:** Instituições que utilizarem o curso sem a devida licença podem **responder legalmente** por violação à legislação de direitos autorais e à legislação que tipifica pirataria. A Cara Core Informática atua com **profissionalismo e transparência**: regularize pelo Portal Escolas.
 
 ## Curso e diploma
 
-- O **curso completo** está disponível no aplicativo **CircuitoPython.exe** (Windows); recomenda-se baixar pela página de [Releases](https://github.com/chmulato/circuito-python-releases/releases/latest).
+- O **curso completo** está disponível no aplicativo **CircuitoFerradura.exe** (Windows); recomenda-se baixar pela página de [Releases](https://github.com/chmulato/circuito-python-releases/releases/latest).
 - O **diploma/certificado** de conclusão utiliza **assinatura e verificação criptográfica**, com código único de verificação.
 
 ## Este repositório (filial)
 
-- **Balcão:** vitrine, download do EXE, licença e portal escolas. Mensagem clara: FREE para pessoas físicas; obrigatoriedade de licença e risco legal para instituições sem regularização.
+- **Balcão:** vitrine, download do EXE, licença e portal escolas. Mensagem clara: versão gratuita para pessoas físicas; obrigatoriedade de licença e risco legal para instituições sem regularização.
 - **Canal de feedback:** suporte por e-mail (suporte@caracore.com.br), WhatsApp e Telegram. Não atendemos ligações telefônicas.
 - **Portal Escolas:** para instituições de ensino médio que queiram regularizar a licença (R$ 5,00/aluno matriculado/mês) e ficar em conformidade com a legislação.
 
