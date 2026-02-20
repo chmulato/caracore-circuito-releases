@@ -1,4 +1,4 @@
-# Assets da loja Circuito Python
+# Assets da loja Circuito Ferradura
 
 Todas as páginas HTML utilizam: **docs/assets/css**, **docs/assets/js**, **docs/assets/img**.
 

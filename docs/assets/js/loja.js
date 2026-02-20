@@ -1,5 +1,5 @@
 /**
- * Circuito Python — Loja (circuito-python-releases)
+ * Circuito Ferradura — Loja (circuito-python-releases)
  * Scripts compartilhados. Utilize sempre assets/js.
  */
 'use strict';

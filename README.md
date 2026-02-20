@@ -31,7 +31,7 @@ O site da filial é publicado via **GitHub Pages** a partir da pasta `docs/`:
 ## Links
 
 - **Repositório público de releases (este repo):** [chmulato/circuito-python-releases](https://github.com/chmulato/circuito-python-releases) — balcão, releases (EXE), feedback e portal escolas.
-- **Download EXE (Releases):** [Releases / CircuitoPython.exe](https://github.com/chmulato/circuito-python-releases/releases/latest)
+- **Download EXE (Releases):** [Releases / CircuitoFerradura.exe](https://github.com/chmulato/circuito-python-releases/releases/latest)
 - **Matriz (delivery centralizado):** domínio Cara Core Informática — delivery/circuito
 - **Cara Core Informática:** [caracore.com.br](https://caracore.com.br)
 
