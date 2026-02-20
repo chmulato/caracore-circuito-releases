@@ -5,13 +5,14 @@ Filial do **Circuito Ferradura** da Cara Core Informática (refatoração do ant
 ## Circuito Ferradura — Visão geral
 
 - **Produto:** Curso de lógica, ábaco romano e programação Python para **jovens entusiastas e curiosos da programação**, foco em negócios e dores dos clientes.
-- **Versão gratuita (pessoas físicas):** uso gratuito para estudo e uso pessoal. O curso, as narrativas e os materiais do Circuito Ferradura são **propriedade exclusiva** da Cara Core Informática (não é open source; consulte a licença completa no repositório do curso).
+- **Versão gratuita (pessoas físicas):** uso gratuito para estudo e uso pessoal. O curso, as narrativas e os materiais do Circuito Ferradura são **propriedade exclusiva** da Cara Core Informática (**não é MIT, não é open source**; consulte a licença completa no repositório do curso).
 - **Instituições de ensino (Brasil):** uso do curso em ambiente escolar (sala de aula ou laboratório) **não** está coberto pela gratuidade. É **obrigatória** a contratação de licença: **R$ 5,00 (cinco reais) mensais por aluno matriculado**, valor recorrente.
 - **Responsabilização legal:** Instituições que utilizarem o curso sem a devida licença podem **responder legalmente** por violação à legislação de direitos autorais e à legislação que tipifica pirataria. A Cara Core Informática atua com **profissionalismo e transparência**: regularize pelo Portal Escolas.
 
 ## Curso e diploma
 
-- O **curso completo** está disponível no aplicativo **CircuitoFerradura.exe** (Windows); recomenda-se baixar pela página de [Releases](https://github.com/chmulato/circuito-python-releases/releases/latest).
+- O **curso completo em HTML (6 Fases)** está disponível diretamente nesta loja em [`docs/curso/`](docs/curso/index.html) — acesso pelo site GitHub Pages sem instalação.
+- O **aplicativo Windows** **CircuitoFerradura.exe** (versão FREE) também inclui o curso; recomenda-se baixar pela página de [Releases](https://github.com/chmulato/circuito-python-releases/releases/latest).
 - O **diploma/certificado** de conclusão utiliza **assinatura e verificação criptográfica**, com código único de verificação.
 
 ## Este repositório (filial)
