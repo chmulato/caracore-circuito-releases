@@ -38,3 +38,9 @@ O site da filial é publicado via **GitHub Pages** a partir da pasta `docs/`:
 ---
 
 **Cara Core Informática** — CNPJ 23.969.028/0001-37
+
+## Licenca
+
+Este repositorio segue licenciamento proprietario institucional da Cara Core Informatica.
+Consulte [LICENSE](LICENSE).
+
