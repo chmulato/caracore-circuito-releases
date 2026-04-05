@@ -26,7 +26,7 @@ Filial do **Circuito Ferradura** da Cara Core Informática (refatoração do ant
 O site da filial é publicado via **GitHub Pages** a partir da pasta `docs/`:
 
 - Configurar em: **Settings → Pages → Source:** Deploy from a branch → Branch: main (ou master) → Folder: **/docs**.
-- URL do site: `https://chmulato.github.io/circuito-python-releases/`
+- URL do site: `https://circuito.caracore.com.br/`
 
 ## Links
 
