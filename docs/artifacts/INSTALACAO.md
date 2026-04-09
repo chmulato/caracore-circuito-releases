@@ -2,6 +2,8 @@
 
 Arquivos desta entrega:
 - CircuitoFerradura.exe
+- circuito-ferradura-site-2.0.0.zip
+- apresentacao_circuito_ferradura.html
 - checksum.sha256
 - checksum.md5
 - INSTALACAO.md (este arquivo)
@@ -28,6 +30,12 @@ Compare os valores com os arquivos `checksum.sha256` e `checksum.md5`.
 1. Execute `CircuitoFerradura.exe` em duplo clique.
 2. Conclua o assistente de instalacao.
 3. Abra o atalho criado no Desktop para iniciar o aplicativo.
+
+## Uso no navegador (HTML completo)
+
+1. Descompacte `circuito-ferradura-site-2.0.0.zip`.
+2. Abra `site/index.html` no navegador.
+3. Para a apresentacao individual, abra `apresentacao_circuito_ferradura.html`.
 
 ## Desinstalacao
 
