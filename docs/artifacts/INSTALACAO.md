@@ -45,9 +45,9 @@ Painel de Controle > Programas > Programas e Recursos > desinstalar Circuito Fer
 
 - Pagina de download: ../download.html
 - Licenca: ../licenca-uso.html
-- Suporte: https://caracore.com.br
+- Suporte: https://www.caracore.com.br
 
 ---
 
 > Versao: v2.0.0
-> Cara Core Informatica — https://caracore.com.br
+> Cara Core Informatica — https://www.caracore.com.br
