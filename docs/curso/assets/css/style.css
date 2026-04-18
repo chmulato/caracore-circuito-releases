@@ -3,7 +3,7 @@
    Palotina, 1993 · Terra Vermelha · Ábaco Romano
    =================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Share+Tech+Mono&display=swap');
+/* Curso: fontes do sistema (evita CDN bloqueada na loja circuito.caracore.com.br) */
 
 :root {
     --verde-pista:     #1a7a3c;
@@ -16,8 +16,8 @@
     --cinza-claro:     #f0faf2;
     --bg-grad:         linear-gradient(135deg, #1a7a3c 0%, #2da858 60%, #f4c430 100%);
 
-    --font-main: 'Nunito', sans-serif;
-    --font-mono: 'Share Tech Mono', monospace;
+    --font-main: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Consolas", "Courier New", monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
