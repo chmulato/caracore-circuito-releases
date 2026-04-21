@@ -1,46 +1,61 @@
-# circuito-circuito-releases (filial do Circuito Ferradura)
+# Caracore Circuito Releases
 
-Filial do **Circuito Ferradura** da Cara Core Informática (refatoração do antigo **Circuito Python**): balcão de vendas, canal de feedback e portal para instituições de ensino. Segue a mesma lógica do produto **chmulatoETE Minerador 4.0** (versão gratuita para pessoas físicas; uso institucional com licença obrigatória).
+Loja oficial de distribuicao do Circuito Ferradura, com foco em publicacao de versoes, downloads, documentacao comercial e atendimento institucional.
 
-## Circuito Ferradura — Visão geral
+## Posicionamento da loja
 
-- **Produto:** Curso de lógica, ábaco romano e programação Python para **jovens entusiastas e curiosos da programação**, foco em negócios e dores dos clientes.
-- **Versão gratuita (pessoas físicas):** uso gratuito para estudo e uso pessoal. O curso, as narrativas e os materiais do Circuito Ferradura são **propriedade exclusiva** da Cara Core Informática (**não é MIT, não é open source**; consulte a licença completa no repositório do curso).
-- **Instituições de ensino (Brasil):** uso do curso em ambiente escolar (sala de aula ou laboratório) **não** está coberto pela gratuidade. É **obrigatória** a contratação de licença: **R$ 5,00 (cinco reais) mensais por aluno matriculado**, valor recorrente.
-- **Responsabilização legal:** Instituições que utilizarem o curso sem a devida licença podem **responder legalmente** por violação à legislação de direitos autorais e à legislação que tipifica pirataria. A Cara Core Informática atua com **profissionalismo e transparência**: regularize pelo Portal Escolas.
+Este repositorio concentra os ativos de publicacao do produto Circuito Ferradura para tres frentes:
 
-## Curso e diploma
+- Distribuicao de releases para usuarios finais
+- Comunicacao comercial e de suporte
+- Canal de regularizacao para instituicoes de ensino
 
-- O **curso completo em HTML (6 Fases)** está disponível diretamente nesta loja em [`docs/curso/`](docs/curso/index.html) — acesso pelo site GitHub Pages sem instalação.
-- O **aplicativo Windows** **CircuitoFerradura.exe** (versão FREE) também inclui o curso; recomenda-se baixar pela página de [Releases](https://github.com/chmulato/circuito-python-releases/releases/latest).
-- O **diploma/certificado** de conclusão utiliza **assinatura e verificação criptográfica**, com código único de verificação.
+## Portfolio de produtos da loja
 
-## Este repositório (filial)
+| Produto | Objetivo | Entrega |
+|---|---|---|
+| Loja de Download | Disponibilizar versoes oficiais e historico de publicacoes | [Releases](https://github.com/chmulato/caracore-circuito-releases/releases) |
+| Curso Web | Permitir acesso direto ao conteudo formativo sem instalacao local | [docs/curso/index.html](docs/curso/index.html) |
+| Aplicativo Windows | Distribuir pacote executavel para uso local | [Releases Latest](https://github.com/chmulato/caracore-circuito-releases/releases/latest) |
+| Portal Institucional | Formalizar contratacao para instituicoes de ensino | [docs/index.html](docs/index.html) |
+| Canal de Suporte | Centralizar contato para duvidas e encaminhamentos | suporte@caracore.com.br |
 
-- **Balcão:** vitrine, download do EXE, licença e portal escolas. Mensagem clara: versão gratuita para pessoas físicas; obrigatoriedade de licença e risco legal para instituições sem regularização.
-- **Canal de feedback:** suporte por e-mail (suporte@caracore.com.br), WhatsApp e Telegram. Não atendemos ligações telefônicas.
-- **Portal Escolas:** para instituições de ensino médio que queiram regularizar a licença (R$ 5,00/aluno matriculado/mês) e ficar em conformidade com a legislação.
+## Politica de uso e licenciamento
 
-## Publicação
+- Uso pessoal: permitido conforme os termos comerciais da oferta gratuita para pessoas fisicas
+- Uso institucional: requer contratacao de licenca recorrente por aluno matriculado
+- Natureza juridica do produto: material proprietario, sem licenca open source
 
-O site da filial é publicado via **GitHub Pages** a partir da pasta `docs/`:
+Termos legais:
 
-- Configurar em: **Settings → Pages → Source:** Deploy from a branch → Branch: main (ou master) → Folder: **/docs**.
-- URL do site: `https://circuito.caracore.com.br/`
+- Licenca local deste repositorio: [LICENSE](LICENSE)
 
-## Links
+## Publicacao do site
 
-- **Repositório público de releases (este repo):** [chmulato/circuito-python-releases](https://github.com/chmulato/circuito-python-releases) — balcão, releases (EXE), feedback e portal escolas.
-- **Download EXE (Releases):** [Releases / CircuitoFerradura.exe](https://github.com/chmulato/circuito-python-releases/releases/latest)
-- **Matriz (delivery centralizado):** domínio Cara Core Informática — delivery/circuito
-- **Cara Core Informática:** [caracore.com.br](https://www.caracore.com.br)
+O portal desta loja e publicado via GitHub Pages a partir da pasta docs.
 
----
+Configuracao recomendada:
 
-**Cara Core Informática** — CNPJ 23.969.028/0001-37
+- Source: Deploy from a branch
+- Branch: master
+- Folder: /docs
 
-## Licenca
+Endereco operacional:
 
-Este repositorio segue licenciamento proprietario institucional da Cara Core Informatica.
-Consulte [LICENSE](LICENSE).
+- https://circuito.caracore.com.br/
+
+## Relacao com o repositorio principal
+
+O desenvolvimento do produto educacional ocorre no repositorio principal do Circuito Ferradura. Este repositorio de releases atua como camada de distribuicao e comunicacao ao mercado.
+
+- Produto principal: https://github.com/chmulato/caracore-circuito
+- Loja de releases: https://github.com/chmulato/caracore-circuito-releases
+
+## Organizacao responsavel
+
+Cara Core Informatica
+
+CNPJ: 23.969.028/0001-37
+
+Site institucional: https://www.caracore.com.br
 
