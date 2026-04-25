@@ -10,6 +10,8 @@ Este repositorio concentra os ativos de publicacao do produto Circuito Ferradura
 - Comunicacao comercial e de suporte
 - Canal de regularizacao para instituicoes de ensino
 
+Atualizacao de memoria (25/04/2026): a loja consolidou a nomenclatura **Circuito Ferradura** e padronizou a apresentacao dos trechos de codigo Python nas paginas do curso. CSS da vitrine centralizado em `docs/assets/css`.
+
 ## Portfolio de produtos da loja
 
 | Produto | Objetivo | Entrega |
