@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fase 3: O Salto da Rampa — Circuito Ferradura</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="/assets/caracore-core-typography.css">
-  <link rel="stylesheet" href="/assets/caracore-institutional-components.css">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
@@ -109,18 +109,22 @@
                         <li><strong>v ≥ 10 m/s</strong> → LENDÁRIO — o salto que virou história</li>
                     </ul>
                 </div>
-                <div class="console-block">
-<span class="comment"># calcular_salto() — da pista para o código</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># calcular_salto() — da pista para o código</span>
 <span class="prompt">def </span>calcular_salto(velocidade: float) -> str:
-    ATRITO = 0.5   <span class="comment"># terra vermelha de Palotina</span>
-    v = velocidade - ATRITO
-    <span class="prompt">if</span>   v < 5:   <span class="prompt">return</span> "BURACO"
-    <span class="prompt">elif</span> v < 8:   <span class="prompt">return</span> "QUASE"
-    <span class="prompt">elif</span> v < 10:  <span class="prompt">return</span> "VOOU"
-    <span class="prompt">else</span>:        <span class="prompt">return</span> "LENDÁRIO"
+    atrito = 0.5  <span class="comment"># terra vermelha de Palotina</span>
+    velocidade_ajustada = velocidade - atrito
+
+    <span class="prompt">if</span> velocidade_ajustada < 5:
+        <span class="prompt">return</span> "BURACO"
+    <span class="prompt">if</span> velocidade_ajustada < 8:
+        <span class="prompt">return</span> "QUASE"
+    <span class="prompt">if</span> velocidade_ajustada < 10:
+        <span class="prompt">return</span> "VOOU"
+
+    <span class="prompt">return</span> "LENDÁRIO"
 
 <span class="prompt">>>> </span>calcular_salto(10.5)
-<span class="result">'LENDÁRIO'</span></div>
+<span class="result">'LENDÁRIO'</span></code></pre>
             </div>
 
             <div class="content-section">
@@ -129,8 +133,7 @@
                     Construir 50 blocos manualmente levaria horas. Com um loop Python, leva 2 segundos.
                     Isso é o poder da automação: a rampa é construída pelo código, não pelo piloto.
                 </p>
-                <div class="console-block">
-<span class="comment"># Construindo a rampa da Paineira no Minecraft</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Construindo a rampa da Paineira no Minecraft</span>
 <span class="prompt">from</span> mcpi.minecraft <span class="prompt">import</span> Minecraft
 <span class="prompt">import</span> mcpi.block <span class="prompt">as</span> block
 
@@ -145,13 +148,17 @@ x0, y0, z0 = mc.player.getTilePos()
 <span class="prompt">for</span> nivel <span class="prompt">in</span> range(10):
     <span class="prompt">for</span> dx <span class="prompt">in</span> range(nivel, 10 - nivel):
         <span class="prompt">for</span> dz <span class="prompt">in</span> range(nivel, 10 - nivel):
-            mc.setBlock(x0 + dx, y0 + nivel, z0 + dz, block.GRASS.id)</div>
+            mc.setBlock(
+                x0 + dx,
+                y0 + nivel,
+                z0 + dz,
+                block.GRASS.id,
+            )</code></pre>
             </div>
 
             <div class="content-section">
                 <h2>3.3 — Animação GIF com Pillow</h2>
-                <div class="console-block">
-<span class="comment"># Gerar frames da trajetória e salvar como GIF</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Gerar frames da trajetória e salvar como GIF</span>
 <span class="prompt">from</span> PIL <span class="prompt">import</span> Image, ImageDraw
 <span class="prompt">import</span> math
 
@@ -162,11 +169,17 @@ frames = []
     x = int(t * 8)
     y = int(200 - (10 * t - 0.5 * 9.8 * t**2 / 10))
     y = max(10, min(190, y))
-    draw.ellipse([x-8, y-8, x+8, y+8], fill=(244, 196, 48))
+    draw.ellipse([x - 8, y - 8, x + 8, y + 8], fill=(244, 196, 48))
     frames.append(img)
 
-frames[0].save("salto_palotina.gif", save_all=True, append_images=frames[1:], duration=50, loop=0)
-<span class="result">Arquivo salvo: salto_palotina.gif</span></div>
+frames[0].save(
+    "salto_palotina.gif",
+    save_all=True,
+    append_images=frames[1:],
+    duration=50,
+    loop=0,
+)
+<span class="result">Arquivo salvo: salto_palotina.gif</span></code></pre>
             </div>
 
             <!-- Checklist -->

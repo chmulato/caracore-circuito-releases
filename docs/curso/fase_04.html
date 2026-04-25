@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fase 4: A Subida de Recuperação — Circuito Ferradura</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="/assets/caracore-core-typography.css">
-  <link rel="stylesheet" href="/assets/caracore-institutional-components.css">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
@@ -106,8 +106,7 @@
                         <strong>Label (saída):</strong> 0 = BURACO, 1 = QUASE, 2 = VOOU, 3 = LENDÁRIO
                     </p>
                 </div>
-                <div class="console-block">
-<span class="comment"># Dataset do Circuito Ferradura — corridas históricas</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Dataset do Circuito Ferradura — corridas históricas</span>
 X_treino = [
     [4.5, 65, 15],   <span class="comment"># velocidade, peso (kg), inclinação (°)</span>
     [7.0, 70, 20],
@@ -120,13 +119,12 @@ X_treino = [
 ]
 y_treino = [0, 1, 2, 3, 0, 2, 1, 3]  <span class="comment"># BURACO, QUASE, VOOU, LENDÁRIO</span>
 
-CLASSES = ["BURACO", "QUASE", "VOOU", "LENDÁRIO"]</div>
+CLASSES = ["BURACO", "QUASE", "VOOU", "LENDÁRIO"]</code></pre>
             </div>
 
             <div class="content-section">
                 <h2>4.2 — Treinando o Modelo</h2>
-                <div class="console-block">
-<span class="prompt">from</span> sklearn.tree <span class="prompt">import</span> DecisionTreeClassifier
+                <pre class="console-block code-python"><code class="language-python"><span class="prompt">from</span> sklearn.tree <span class="prompt">import</span> DecisionTreeClassifier
 <span class="prompt">from</span> sklearn.metrics <span class="prompt">import</span> accuracy_score
 
 <span class="comment"># Treinar a árvore de decisão</span>
@@ -142,7 +140,7 @@ predicao = modelo.predict(novo_piloto)
 <span class="comment"># Acurácia no conjunto de treino</span>
 precisao = accuracy_score(y_treino, modelo.predict(X_treino))
 <span class="prompt">print</span>(f"Acurácia: {precisao:.0%}")
-<span class="result">Acurácia: 100%</span></div>
+<span class="result">Acurácia: 100%</span></code></pre>
             </div>
 
             <div class="content-section">
@@ -151,8 +149,7 @@ precisao = accuracy_score(y_treino, modelo.predict(X_treino))
                     Com o modelo treinado, criamos um bot que analisa as condições da pista
                     em tempo real e sugere a velocidade ideal para o salto.
                 </p>
-                <div class="console-block">
-<span class="prompt">class</span> BotFerradura:
+                <pre class="console-block code-python"><code class="language-python"><span class="prompt">class</span> BotFerradura:
     <span class="prompt">def __init__</span>(self, modelo, classes):
         self.modelo = modelo
         self.classes = classes
@@ -161,17 +158,19 @@ precisao = accuracy_score(y_treino, modelo.predict(X_treino))
         entrada = [[velocidade, peso, inclinacao]]
         codigo = self.modelo.predict(entrada)[0]
         resultado = self.classes[codigo]
+
         <span class="prompt">if</span> codigo == 0:
             dica = "⚠️  Aumente a velocidade! Risco de buraco."
         <span class="prompt">elif</span> codigo == 3:
             dica = "🏆 Velocidade lendária! Segure o guidão."
         <span class="prompt">else</span>:
             dica = f"✅ Resultado previsto: {resultado}"
+
         <span class="prompt">return</span> dica
 
 bot = BotFerradura(modelo, CLASSES)
 <span class="prompt">print</span>(bot.analisar(9.0, 65, 25))
-<span class="result">✅ Resultado previsto: VOOU</span></div>
+<span class="result">✅ Resultado previsto: VOOU</span></code></pre>
             </div>
 
             <!-- Checklist -->

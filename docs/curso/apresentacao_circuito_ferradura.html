@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circuito Ferradura — Demo Interativo Console</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         :root {
             --verde-pista: #1a7a3c;
@@ -39,21 +39,35 @@
         .hero .subtitulo { font-size: 1.25rem; opacity: .9; }
 
         .console-block {
-            background-color: var(--cinza-console);
-            color: #c8f0a0;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 3rem),
+                #111827;
+            color: #d7f7c2;
             font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-            font-size: .88rem;
-            border-radius: .75rem;
-            padding: 1.5rem;
-            line-height: 1.7;
-            box-shadow: 0 4px 20px rgba(0,0,0,.35);
+            font-size: .95rem;
+            border: 1px solid rgba(45, 168, 88, .45);
+            border-left: 5px solid var(--verde-claro);
+            border-radius: .9rem;
+            padding: 3.25rem 1.5rem 1.5rem;
+            line-height: 1.75;
+            white-space: pre;
+            tab-size: 4;
+            box-shadow: 0 14px 34px rgba(17,24,39,.28);
             overflow-x: auto;
         }
 
-        .console-block .prompt { color: #5af78e; }
-        .console-block .borda  { color: #f4c430; }
-        .console-block .enter  { color: #75bfff; font-style: italic; }
-        .console-block .result { color: #ff8c42; }
+        .console-block .prompt { color: #7dd3fc; font-weight: 700; }
+        .console-block .borda  { color: #facc15; }
+        .console-block .enter  { color: #93c5fd; font-style: italic; }
+        .console-block .result { color: #fdba74; }
+        .console-block code {
+            color: inherit;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            font-size: inherit;
+        }
 
         .card-fase {
             border: none;
@@ -139,8 +153,8 @@
             color: #aaa;
         }
     </style>
-  <link rel="stylesheet" href="/assets/caracore-core-typography.css">
-  <link rel="stylesheet" href="/assets/caracore-institutional-components.css">
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
@@ -196,8 +210,7 @@
         <h2 class="text-center secao-titulo mb-5">O que você vai ver</h2>
         <div class="row justify-content-center">
             <div class="col-lg-9">
-                <div class="console-block">
-<span class="borda">██████████████████████████████████████████████████████████</span>
+                <pre class="console-block code-console"><code class="language-console"><span class="borda">██████████████████████████████████████████████████████████</span>
 <span class="borda">█                  🏁 CIRCUITO FERRADURA                   █</span>
 <span class="borda">█          Palotina, PR — Terra Vermelha 1993              █</span>
 <span class="borda">█              Ábaco Romano em Python  v2.0.0              █</span>
@@ -214,7 +227,7 @@
       Valor após zerar: 0
 
 <span class="enter">  [ Pressione ENTER para avançar para a Fase 2 ] _</span>
-                </div>
+                </code></pre>
             </div>
         </div>
     </div>

@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fase 2: A Curva da Paineira — Circuito Ferradura</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="/assets/caracore-core-typography.css">
-  <link rel="stylesheet" href="/assets/caracore-institutional-components.css">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
@@ -108,8 +108,7 @@
                         <code>clock.tick(60)</code> = 60 pedaladas por segundo.
                     </p>
                 </div>
-                <div class="console-block">
-<span class="comment"># Estrutura base do game loop — a "pedalada" do Pygame</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Estrutura base do game loop — a "pedalada" do Pygame</span>
 <span class="prompt">import pygame</span>
 
 pygame.init()
@@ -133,7 +132,7 @@ rodando = True
     bola.desenhar(tela)
     pygame.display.flip()
 
-    clock.tick(60)   <span class="comment"># 60 FPS = 60 pedaladas/segundo</span></div>
+    clock.tick(60)   <span class="comment"># 60 FPS = 60 pedaladas/segundo</span></code></pre>
             </div>
 
             <div class="content-section">
@@ -143,8 +142,7 @@ rodando = True
                     quando a bola toca uma borda, o sinal da velocidade se inverte.
                     Isso é a programação da curva da Paineira: o piloto <em>dobra</em> a direção.
                 </p>
-                <div class="console-block">
-<span class="comment"># Classe Bola — objeto com estado e comportamento</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Classe Bola — objeto com estado e comportamento</span>
 <span class="prompt">class </span>Bola:
     <span class="prompt">def </span>__init__(self):
         self.x, self.y = 400, 300
@@ -154,9 +152,13 @@ rodando = True
     <span class="prompt">def </span>mover(self):
         self.x += self.vx
         self.y += self.vy
+
         <span class="comment"># Rebater nas paredes superior e inferior</span>
-        <span class="prompt">if</span> self.y - self.raio <= 0 <span class="prompt">or</span> self.y + self.raio >= 600:
-            self.vy *= -1   <span class="comment"># inverte — a curva da Paineira</span></div>
+        <span class="prompt">if</span> (
+            self.y - self.raio <= 0
+            <span class="prompt">or</span> self.y + self.raio >= 600
+        ):
+            self.vy *= -1  <span class="comment"># inverte — a curva da Paineira</span></code></pre>
             </div>
 
             <!-- Checklist -->

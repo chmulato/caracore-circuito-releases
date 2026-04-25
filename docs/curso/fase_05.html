@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fase 5: A Grande Corrida — Circuito Ferradura</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="/assets/caracore-core-typography.css">
-  <link rel="stylesheet" href="/assets/caracore-institutional-components.css">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
@@ -115,25 +115,28 @@
                     </ol>
                 </div>
 
-                <div class="console-block">
-<span class="comment"># Simulador do fluxo OAuth 2.0 em Python</span>
-<span class="prompt">import</span> urllib.parse, secrets
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Simulador do fluxo OAuth 2.0 em Python</span>
+<span class="prompt">import</span> secrets
+<span class="prompt">import</span> urllib.parse
 
-CLIENT_ID    = "circuito_ferradura_app"
+CLIENT_ID = "circuito_ferradura_app"
 REDIRECT_URI = "http://localhost:8080/callback"
-SCOPE        = "openid profile email"
+SCOPE = "openid profile email"
 
-state = secrets.token_urlsafe(16)   <span class="comment"># proteção CSRF</span>
+state = secrets.token_urlsafe(16)  <span class="comment"># proteção CSRF</span>
 
 params = {
     "response_type": "code",
-    "client_id":     CLIENT_ID,
-    "redirect_uri":  REDIRECT_URI,
-    "scope":         SCOPE,
-    "state":         state,
+    "client_id": CLIENT_ID,
+    "redirect_uri": REDIRECT_URI,
+    "scope": SCOPE,
+    "state": state,
 }
-url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(params)
-<span class="prompt">print</span>(f"→ Redirecionar para:\n{url}")</div>
+url = (
+    "https://accounts.google.com/o/oauth2/auth?"
+    + urllib.parse.urlencode(params)
+)
+<span class="prompt">print</span>(f"→ Redirecionar para:\n{url}")</code></pre>
             </div>
 
             <div class="content-section">
@@ -142,29 +145,42 @@ url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode(para
                     Cada piloto tem um número no peito — único e verificável. O JWT funciona assim:
                     três partes separadas por ponto, codificadas em base64url.
                 </p>
-                <div class="console-block">
-<span class="comment"># Estrutura de um JWT</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Estrutura de um JWT</span>
 <span class="comment"># HEADER.PAYLOAD.SIGNATURE</span>
 <span class="comment">#</span>
 <span class="comment"># Header  → {"alg": "RS256", "typ": "JWT"}</span>
 <span class="comment"># Payload → {"sub": "12345", "name": "Ciclano",</span>
 <span class="comment">#             "email": "ci@ferradura.dev", "iat": 1702930800}</span>
 
-<span class="prompt">import</span> base64, json
+<span class="prompt">import</span> base64
+<span class="prompt">import</span> json
 
 <span class="prompt">def</span> decodificar_jwt(token: str) -> dict:
     partes = token.split(".")
-    <span class="prompt">def</span> decode_b64(s):
-        padding = 4 - len(s) % 4
-        <span class="prompt">return</span> json.loads(base64.urlsafe_b64decode(s + "=" * padding))
-    header  = decode_b64(partes[0])
+
+    <span class="prompt">def</span> decode_b64(valor: str) -> dict:
+        padding = "=" * (-len(valor) % 4)
+        dados = base64.urlsafe_b64decode(valor + padding)
+        <span class="prompt">return</span> json.loads(dados)
+
+    header = decode_b64(partes[0])
     payload = decode_b64(partes[1])
-    <span class="prompt">return</span> {"header": header, "payload": payload, "assinatura": partes[2][:20] + "..."}
+
+    <span class="prompt">return</span> {
+        "header": header,
+        "payload": payload,
+        "assinatura": partes[2][:20] + "...",
+    }
 
 <span class="comment"># Exemplo com python-jose (validação com chave pública)</span>
 <span class="prompt">from</span> jose <span class="prompt">import</span> jwt
-claims = jwt.decode(token, chave_publica, algorithms=["RS256"], audience=CLIENT_ID)
-<span class="prompt">print</span>(f"Bem-vindo, {claims['name']}!")</div>
+claims = jwt.decode(
+    token,
+    chave_publica,
+    algorithms=["RS256"],
+    audience=CLIENT_ID,
+)
+<span class="prompt">print</span>(f"Bem-vindo, {claims['name']}!")</code></pre>
             </div>
 
             <div class="content-section">
@@ -173,22 +189,25 @@ claims = jwt.decode(token, chave_publica, algorithms=["RS256"], audience=CLIENT_
                     OAuth diz <em>"você pode acessar"</em>. OIDC responde <em>"mas quem é você?"</em>.
                     O <code>id_token</code> contém as claims de identidade verificáveis.
                 </p>
-                <div class="console-block">
-<span class="comment"># Claims típicas de um id_token OIDC</span>
+                <pre class="console-block code-python"><code class="language-python"><span class="comment"># Claims típicas de um id_token OIDC</span>
+<span class="prompt">import</span> time
+
 id_token_payload = {
-    "iss":   "https://accounts.google.com",  <span class="comment"># quem emitiu</span>
-    "sub":   "103456789012345678901",         <span class="comment"># ID único do usuário</span>
-    "aud":   CLIENT_ID,                      <span class="comment"># para quem é o token</span>
-    "exp":   1702934400,                     <span class="comment"># quando expira (Unix)</span>
-    "iat":   1702930800,                     <span class="comment"># quando foi emitido</span>
-    "name":  "Ciclano da Corrida",
+    "iss": "https://accounts.google.com",  <span class="comment"># quem emitiu</span>
+    "sub": "103456789012345678901",  <span class="comment"># ID único do usuário</span>
+    "aud": CLIENT_ID,  <span class="comment"># para quem é o token</span>
+    "exp": 1702934400,  <span class="comment"># quando expira (Unix)</span>
+    "iat": 1702930800,  <span class="comment"># quando foi emitido</span>
+    "name": "Ciclano da Corrida",
     "email": "ciclano@ferradura.dev",
     "email_verified": True,
 }
 
 <span class="prompt">def</span> piloto_autenticado(claims: dict) -> bool:
-    <span class="prompt">import</span> time
-    <span class="prompt">return</span> claims.get("email_verified") <span class="prompt">and</span> claims["exp"] > time.time()</div>
+    <span class="prompt">return</span> (
+        claims.get("email_verified") <span class="prompt">is</span> True
+        <span class="prompt">and</span> claims["exp"] > time.time()
+    )</code></pre>
             </div>
 
             <!-- Checklist -->
