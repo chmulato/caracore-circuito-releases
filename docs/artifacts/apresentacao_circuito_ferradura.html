@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circuito Ferradura — Demo Interativo Console</title>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         :root {
             --verde-pista: #1a7a3c;
@@ -17,10 +18,6 @@
         body {
             background-color: #f8f9fa;
             font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        .navbar-ferradura {
-            background-color: var(--verde-pista);
         }
 
         .hero {
@@ -42,21 +39,35 @@
         .hero .subtitulo { font-size: 1.25rem; opacity: .9; }
 
         .console-block {
-            background-color: var(--cinza-console);
-            color: #c8f0a0;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 3rem),
+                #111827;
+            color: #d7f7c2;
             font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-            font-size: .88rem;
-            border-radius: .75rem;
-            padding: 1.5rem;
-            line-height: 1.7;
-            box-shadow: 0 4px 20px rgba(0,0,0,.35);
+            font-size: .95rem;
+            border: 1px solid rgba(45, 168, 88, .45);
+            border-left: 5px solid var(--verde-claro);
+            border-radius: .9rem;
+            padding: 3.25rem 1.5rem 1.5rem;
+            line-height: 1.75;
+            white-space: pre;
+            tab-size: 4;
+            box-shadow: 0 14px 34px rgba(17,24,39,.28);
             overflow-x: auto;
         }
 
-        .console-block .prompt { color: #5af78e; }
-        .console-block .borda  { color: #f4c430; }
-        .console-block .enter  { color: #75bfff; font-style: italic; }
-        .console-block .result { color: #ff8c42; }
+        .console-block .prompt { color: #7dd3fc; font-weight: 700; }
+        .console-block .borda  { color: #facc15; }
+        .console-block .enter  { color: #93c5fd; font-style: italic; }
+        .console-block .result { color: #fdba74; }
+        .console-block code {
+            color: inherit;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            font-size: inherit;
+        }
 
         .card-fase {
             border: none;
@@ -142,14 +153,35 @@
             color: #aaa;
         }
     </style>
+  <link rel="stylesheet" href="/assets/css/caracore-core-typography.css">
+  <link rel="stylesheet" href="/assets/css/caracore-institutional-components.css">
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-ferradura navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold fs-5" href="#">🏁 Circuito Ferradura</a>
-        <span class="tag-versao">v2.0.0</span>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.0</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navFases" role="button" data-bs-toggle="dropdown">Fases</a>
+                    <ul class="dropdown-menu" aria-labelledby="navFases">
+                        <li><a class="dropdown-item" href="fase_01.html">Fase 1 — O Terreno Vazio</a></li>
+                        <li><a class="dropdown-item" href="fase_02.html">Fase 2 — A Curva da Paineira</a></li>
+                        <li><a class="dropdown-item" href="fase_03.html">Fase 3 — O Salto da Rampa</a></li>
+                        <li><a class="dropdown-item" href="fase_04.html">Fase 4 — A Subida de Recuperação</a></li>
+                        <li><a class="dropdown-item" href="fase_05.html">Fase 5 — A Grande Corrida</a></li>
+                        <li><a class="dropdown-item" href="fase_06.html">Fase 6 — O Lucro na Calçada</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -163,11 +195,11 @@
             Aprenda variáveis, operações e funções com um <strong>ábaco romano em Python</strong>,
             diretamente no terminal.
         </p>
-        <a href="CircuitoFerradura.exe" class="btn btn-download btn-lg me-2">
-            ⬇ Baixar CircuitoFerradura.exe
+        <a href="../download.html" class="btn btn-download btn-lg me-2">
+            ⬇ Baixar Windows/macOS
         </a>
         <p class="mt-3" style="opacity:.75; font-size:.9rem;">
-            Windows · Sem instalação · ~6 MB
+            Windows completo · macOS · HTML offline
         </p>
     </div>
 </section>
@@ -178,8 +210,7 @@
         <h2 class="text-center secao-titulo mb-5">O que você vai ver</h2>
         <div class="row justify-content-center">
             <div class="col-lg-9">
-                <div class="console-block">
-<span class="borda">██████████████████████████████████████████████████████████</span>
+                <pre class="console-block code-console"><code class="language-console"><span class="borda">██████████████████████████████████████████████████████████</span>
 <span class="borda">█                  🏁 CIRCUITO FERRADURA                   █</span>
 <span class="borda">█          Palotina, PR — Terra Vermelha 1993              █</span>
 <span class="borda">█              Ábaco Romano em Python  v2.0.0              █</span>
@@ -196,7 +227,7 @@
       Valor após zerar: 0
 
 <span class="enter">  [ Pressione ENTER para avançar para a Fase 2 ] _</span>
-                </div>
+                </code></pre>
             </div>
         </div>
     </div>
@@ -284,15 +315,15 @@
                 <div class="passo-instalacao">
                     <div class="passo-num">1</div>
                     <div>
-                        <strong>Baixe o executável</strong><br>
-                        <small class="text-muted">Clique em "Baixar CircuitoFerradura.exe" acima. Arquivo único, ~6 MB.</small>
+                        <strong>Baixe o pacote recomendado</strong><br>
+                        <small class="text-muted">Use o pacote Windows completo, o pacote macOS ou o HTML offline na página de download.</small>
                     </div>
                 </div>
                 <div class="passo-instalacao">
                     <div class="passo-num">2</div>
                     <div>
-                        <strong>Execute com duplo clique</strong><br>
-                        <small class="text-muted">Nenhuma instalação necessária. Windows pode pedir confirmação — clique em "Executar assim mesmo".</small>
+                        <strong>Abra localmente</strong><br>
+                        <small class="text-muted">No Windows, execute o <code>CircuitoFerradura.exe</code>. No macOS, abra <code>curso/index.html</code> ou o launcher <code>.command</code>.</small>
                     </div>
                 </div>
                 <div class="passo-instalacao">
@@ -306,8 +337,7 @@
                     <div class="passo-num">4</div>
                     <div>
                         <strong>Acesse o curso completo</strong><br>
-                        <small class="text-muted">Este demo cobre as Fases 1, 2, 3 e 6. O curso completo com 6 módulos está
-                            disponível no <strong>Circuito Ferradura</strong> (aplicativo desktop com interface gráfica).</small>
+                        <small class="text-muted">O pacote local inclui as páginas do curso em <code>curso/index.html</code>, com as 6 fases e os assets necessários.</small>
                     </div>
                 </div>
             </div>
@@ -321,6 +351,7 @@
         <h5 class="mb-3 fw-bold" style="color: var(--verde-pista);">Requisitos</h5>
         <div class="d-flex flex-wrap justify-content-center gap-3">
             <span class="badge bg-secondary fs-6">🖥 Windows 10 / 11</span>
+            <span class="badge bg-secondary fs-6">🍎 macOS</span>
             <span class="badge bg-secondary fs-6">📦 Sem instalação</span>
             <span class="badge bg-secondary fs-6">🐍 Python embutido</span>
             <span class="badge bg-secondary fs-6">⌨ Terminal (CMD ou PowerShell)</span>
@@ -336,11 +367,11 @@
             <span class="tag-versao ms-2">v2.0.0</span>
         </p>
         <p class="mb-0" style="font-size:.85rem;">
-            Produto: <em>console demo</em> · Pacote: <code>circuito_ferradura</code> ·
+            Produto: <em>curso local + console demo</em> · Pacote: <code>circuito_ferradura</code> ·
             Cara Core © 2025–2026
         </p>
         <p class="mt-2 mb-0" style="font-size:.8rem;">
-            Não confundir com <strong>Circuito Ferradura</strong> (aplicativo desktop com curso completo).
+            Downloads oficiais: pacote Windows completo, pacote macOS e HTML offline.
         </p>
     </div>
 </footer>
@@ -348,3 +379,6 @@
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+

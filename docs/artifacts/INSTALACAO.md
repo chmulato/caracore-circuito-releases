@@ -1,8 +1,10 @@
-# Circuito Ferradura - Instalacao (Windows)
+# Circuito Ferradura - Instalacao (Windows e macOS)
 
 Arquivos desta entrega:
 - CircuitoFerradura.exe
 - circuito-ferradura-site-2.0.0.zip
+- circuito-ferradura-windows-2.0.0.zip
+- circuito-ferradura-macos-2.0.0.zip
 - apresentacao_circuito_ferradura.html
 - checksum.sha256
 - checksum.md5
@@ -19,27 +21,38 @@ Get-FileHash -Path .\CircuitoFerradura.exe -Algorithm MD5
 
 Compare os valores com os arquivos `checksum.sha256` e `checksum.md5`.
 
-## Requisitos
+## Requisitos Windows
 
 - Windows 10 ou superior (64 bits)
 - 200 MB de espaco livre
 - Conexao com internet: nao necessaria
 
-## Execucao
+## Execucao do aplicativo Windows
 
 1. Execute `CircuitoFerradura.exe` em duplo clique.
-2. Conclua o assistente de instalacao.
-3. Abra o atalho criado no Desktop para iniciar o aplicativo.
+2. Se o Windows SmartScreen exibir um aviso, confirme apenas se o arquivo foi baixado do canal oficial e os hashes conferem.
+3. O aplicativo abre localmente em uma janela de terminal e pode abrir o curso completo no navegador.
+
+Para uma entrega completa, use `circuito-ferradura-windows-2.0.0.zip`: ele contem o executavel, `curso/` e `assets/` no mesmo pacote.
+
+## Execucao no macOS
+
+1. Baixe `circuito-ferradura-macos-2.0.0.zip`.
+2. Descompacte o arquivo.
+3. Abra `abrir-circuito-ferradura.command`.
+4. Se o macOS bloquear a primeira execucao, clique com o botao direito no arquivo, escolha Abrir e confirme.
+
+Alternativa: abra `curso/index.html` diretamente no Safari, Chrome ou Firefox.
 
 ## Uso no navegador (HTML completo)
 
 1. Descompacte `circuito-ferradura-site-2.0.0.zip`.
-2. Abra `site/index.html` no navegador.
+2. Abra `curso/index.html` no navegador para acessar a apresentacao atualizada.
 3. Para a apresentacao individual, abra `apresentacao_circuito_ferradura.html`.
 
 ## Desinstalacao
 
-Painel de Controle > Programas > Programas e Recursos > desinstalar Circuito Ferradura.
+Remova os arquivos baixados/descompactados. Nao ha instalador MSI nem servico residente nesta entrega.
 
 ## Canal oficial
 
