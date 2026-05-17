@@ -588,7 +588,7 @@ footer a:hover { color: var(--amarelo-palotina); }
 img { max-width: 100%; height: auto; }
 
 @media (max-width: 1199.98px) {
-    .hero-title { font-size: 2.5rem; }
+    h1.hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.15rem; }
     .circuit-node { width: 220px; }
     .node-description { font-size: .8rem; }
@@ -607,9 +607,20 @@ img { max-width: 100%; height: auto; }
 
     .hero-image { height: 360px; }
     .hero-overlay .container { padding-inline: 1rem; }
-    .hero-title { font-size: 2rem; }
+    h1.hero-title { font-size: 2rem; }
     .hero-subtitle { font-size: 1rem; }
     .hero-overlay .btn {
+        width: 100%;
+        margin: .35rem 0 !important;
+    }
+
+    /* .btn-outline-light fora do hero — alinhado aos outros CTAs (tablet/mobile) */
+    .alert-terra .btn-outline-light,
+    .alert-ferradura .btn-outline-light,
+    .alert-palotina .btn-outline-light,
+    .nav-fases .btn-outline-light,
+    .content-section .btn-outline-light,
+    .lgpd-banner .btn-outline-light {
         width: 100%;
         margin: .35rem 0 !important;
     }
@@ -710,8 +721,39 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 575.98px) {
     .hero-image { height: 300px; }
-    .hero-title { font-size: 1.6rem; }
+    h1.hero-title { font-size: 1.6rem; }
     .hero-subtitle { font-size: .95rem; }
+
+    h2.display-5 {
+        font-size: 1.75rem;
+    }
+
+    .certificado-container .row .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .certificado-container .row.text-center .col-6:not(:first-child) {
+        margin-top: .75rem;
+    }
+
+    .alert-terra .btn,
+    .alert-ferradura .btn,
+    .alert-palotina .btn {
+        width: 100%;
+        margin: .35rem 0 !important;
+    }
+
+    .text-center.mt-4 > .btn {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .quiz-question .form-check-label {
+        overflow-wrap: anywhere;
+    }
 
     .container,
     .container-fluid {
@@ -727,7 +769,8 @@ img { max-width: 100%; height: auto; }
     }
 
     .btn-ferradura,
-    .btn-palotina {
+    .btn-palotina,
+    .btn-outline-light {
         width: 100%;
         margin: .35rem 0 !important;
     }
