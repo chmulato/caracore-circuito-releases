@@ -585,12 +585,163 @@ footer a:hover { color: var(--amarelo-palotina); }
 .nav-fases a { font-weight: 700; }
 
 /* ── Responsivo ──────────────────────────────────── */
-@media (max-width: 768px) {
-    .hero-title  { font-size: 2rem; }
-    .hero-image  { height: 300px; }
-    .circuit-node { width: 200px; }
-    .circuit-container { min-height: 500px; }
-    .circuit-node { font-size: .85rem; }
-    .certificado-titulo { font-size: 1.8rem; }
-    .certificado-aluno  { font-size: 1.4rem; }
+img { max-width: 100%; height: auto; }
+
+@media (max-width: 1199.98px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.15rem; }
+    .circuit-node { width: 220px; }
+    .node-description { font-size: .8rem; }
+}
+
+@media (max-width: 991.98px) {
+    body { font-size: 16px; line-height: 1.65; }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .25rem;
+    }
+
+    .hero-image { height: 360px; }
+    .hero-overlay .container { padding-inline: 1rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-overlay .btn {
+        width: 100%;
+        margin: .35rem 0 !important;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+
+    .content-section {
+        padding: 1.5rem;
+        border-radius: .85rem;
+    }
+
+    .circuit-container {
+        position: static;
+        min-height: 0;
+        margin: 1.25rem auto;
+        display: grid;
+        gap: .9rem;
+    }
+    .circuit-background-image,
+    .circuit-svg {
+        display: none;
+    }
+    .circuit-node {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        width: 100%;
+        align-items: center;
+        gap: .85rem;
+        padding: .9rem 1rem;
+        border-radius: .9rem;
+        border: 1px solid #e4e7ec;
+        background: #fff;
+        box-shadow: 0 3px 10px rgba(0,0,0,.06);
+    }
+    .node-circle {
+        width: 2.9rem;
+        height: 2.9rem;
+    }
+    .node-content h5 {
+        margin-bottom: .35rem;
+        font-size: .95rem;
+    }
+    .node-description {
+        margin-top: .2rem;
+        font-size: .82rem;
+    }
+
+    .console-block {
+        font-size: .86rem;
+        line-height: 1.6;
+        border-radius: .75rem;
+        padding: 2.9rem 1rem 1rem;
+    }
+    .console-block::before {
+        font-size: .72rem;
+        padding: .6rem .85rem;
+    }
+
+    .nav-fases {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75rem;
+        text-align: center;
+    }
+    .nav-fases .btn {
+        width: 100%;
+    }
+
+    .certificado-container {
+        padding: 1.75rem 1.25rem;
+        border-width: 4px;
+    }
+    .certificado-titulo { font-size: 1.85rem; }
+    .certificado-aluno { font-size: 1.45rem; }
+
+    .lgpd-banner {
+        padding: .85rem 0;
+    }
+    .lgpd-banner .row {
+        gap: .75rem;
+    }
+    .lgpd-banner .btn {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    footer {
+        text-align: center;
+    }
+    footer .text-end {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-image { height: 300px; }
+    .hero-title { font-size: 1.6rem; }
+    .hero-subtitle { font-size: .95rem; }
+
+    .container,
+    .container-fluid {
+        padding-left: .9rem;
+        padding-right: .9rem;
+    }
+
+    .badge-fase,
+    .badge-duracao,
+    .badge-nivel {
+        display: inline-flex;
+        margin: .2rem .1rem;
+    }
+
+    .btn-ferradura,
+    .btn-palotina {
+        width: 100%;
+        margin: .35rem 0 !important;
+    }
+
+    .content-section {
+        padding: 1.15rem;
+    }
+
+    .certificado-container::before,
+    .certificado-container::after {
+        display: none;
+    }
+    .certificado-codigo {
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
 }
