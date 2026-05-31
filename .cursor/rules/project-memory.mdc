@@ -1,0 +1,23 @@
+---
+description: Memória da loja Circuito Ferradura — caracore-circuito-releases; vitrine circuito.caracore.com.br
+alwaysApply: true
+---
+
+# Memória da Loja — caracore-circuito-releases
+
+## Repositório e papel
+- **caracore-circuito-releases:** loja (vitrine e releases) do **Circuito Ferradura**.
+- **URL:** https://circuito.caracore.com.br/
+- **Publicação:** GitHub Pages a partir de **docs/**.
+- **Oficina:** caracore-circuito
+
+## Matriz
+- **Portfólio:** `portfolio.html#circuito-python`
+- **Preços:** FREE PF · escolas R$ 5/aluno/mês
+
+## Estrutura (docs/)
+- index · módulos · download · canal-feedback · wiki/ (conforme molde)
+
+## Convenções
+- Footer → portfólio `#circuito-python`
+- Conteúdo comercial longo fica na loja, não na matriz.
