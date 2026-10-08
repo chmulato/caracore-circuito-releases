@@ -2,9 +2,9 @@
 
 Arquivos desta entrega:
 - CircuitoFerradura.exe
-- circuito-ferradura-site-2.0.4.zip
-- circuito-ferradura-windows-2.0.4.zip
-- circuito-ferradura-macos-2.0.4.zip
+- circuito-ferradura-site-2.0.5.zip
+- circuito-ferradura-windows-2.0.5.zip
+- circuito-ferradura-macos-2.0.5.zip
 - apresentacao_circuito_ferradura.html
 - checksum.sha256
 - checksum.md5
@@ -33,11 +33,11 @@ Compare os valores com os arquivos `checksum.sha256` e `checksum.md5`.
 2. Se o Windows SmartScreen exibir um aviso, confirme apenas se o arquivo foi baixado do canal oficial e os hashes conferem.
 3. O aplicativo abre localmente em uma janela de terminal e pode abrir o curso completo no navegador.
 
-Para uma entrega completa, use `circuito-ferradura-windows-2.0.4.zip`: ele contem o executavel, `curso/` e `assets/` no mesmo pacote.
+Para uma entrega completa, use `circuito-ferradura-windows-2.0.5.zip`: ele contem o executavel, `curso/` e `assets/` no mesmo pacote.
 
 ## Execucao no macOS
 
-1. Baixe `circuito-ferradura-macos-2.0.4.zip`.
+1. Baixe `circuito-ferradura-macos-2.0.5.zip`.
 2. Descompacte o arquivo.
 3. Abra `abrir-circuito-ferradura.command`.
 4. Se o macOS bloquear a primeira execucao, clique com o botao direito no arquivo, escolha Abrir e confirme.
@@ -46,7 +46,7 @@ Alternativa: abra `curso/index.html` diretamente no Safari, Chrome ou Firefox.
 
 ## Uso no navegador (HTML completo)
 
-1. Descompacte `circuito-ferradura-site-2.0.4.zip`.
+1. Descompacte `circuito-ferradura-site-2.0.5.zip`.
 2. Abra `curso/index.html` no navegador para acessar a apresentacao atualizada.
 3. Para a apresentacao individual, abra `apresentacao_circuito_ferradura.html`.
 
@@ -62,5 +62,5 @@ Remova os arquivos baixados/descompactados. Nao ha instalador MSI nem servico re
 
 ---
 
-> Versao: v2.0.4
+> Versao: v2.0.5
 > Cara Core Informatica — loja: https://circuito.caracore.com.br/
