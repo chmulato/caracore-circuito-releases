@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.6</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.8</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -111,14 +111,11 @@
                 </div>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># calcular_salto() — da pista para o código</span>
 <span class="prompt">def </span>calcular_salto(velocidade: float) -> str:
-    atrito = 0.5  <span class="comment"># terra vermelha de Palotina</span>
-    velocidade_ajustada = velocidade - atrito
-
-    <span class="prompt">if</span> velocidade_ajustada < 5:
+    <span class="prompt">if</span> velocidade < 5:
         <span class="prompt">return</span> "BURACO"
-    <span class="prompt">if</span> velocidade_ajustada < 8:
+    <span class="prompt">if</span> velocidade < 8:
         <span class="prompt">return</span> "QUASE"
-    <span class="prompt">if</span> velocidade_ajustada < 10:
+    <span class="prompt">if</span> velocidade < 10:
         <span class="prompt">return</span> "VOOU"
 
     <span class="prompt">return</span> "LENDÁRIO"
