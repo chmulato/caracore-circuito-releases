@@ -40,6 +40,8 @@ function initChecklist() {
         const id = cb.id || `cf-cb-${i}`;
         cb.id = id;
         if (saved[id]) cb.checked = true;
+        if (cb.dataset.cfBound === '1') return;
+        cb.dataset.cfBound = '1';
 
         cb.addEventListener('change', function () {
             if (!hasLGPDConsent()) {
@@ -162,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('lgpd_consent_ferradura', 'accepted');
         localStorage.setItem('lgpd_consent_ferradura_date', new Date().toISOString());
         document.getElementById('lgpd-banner')?.classList.add('d-none');
+        initChecklist();
     });
 
     document.getElementById('lgpd-deny')?.addEventListener('click', () => {
