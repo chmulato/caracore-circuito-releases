@@ -74,15 +74,20 @@ function updateProgress() {
 // ── Certificado ──────────────────────────────────────
 
 function gerarCodigoCertificado(nome) {
-    const base = nome.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4).padEnd(4, 'X');
-    const num  = Math.floor(Math.random() * 90000000 + 10000000);
-    return `CF-1993-${base}${num}`;
+    const normalizado = nome.trim().toUpperCase();
+    let hash = 2166136261;
+    for (let i = 0; i < normalizado.length; i++) {
+        hash ^= normalizado.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    const num = (hash >>> 0) % 100000000;
+    return `CF-1993-${String(num).padStart(8, '0')}`;
 }
 
-async function gerarCertificado(ev) {
+function gerarCertificado(ev) {
     ev.preventDefault();
-    const nome  = document.getElementById('student-name').value.trim();
-    const data  = document.getElementById('completion-date').value;
+    const nome = document.getElementById('cert-nome-input').value.trim();
+    const data = document.getElementById('cert-data-input').value;
 
     if (!nome) { alert('Por favor, informe o nome do aluno.'); return; }
 
@@ -94,6 +99,8 @@ async function gerarCertificado(ev) {
     document.getElementById('cert-nome').textContent = nome;
     document.getElementById('cert-data').textContent = dataFmt;
     document.getElementById('cert-codigo').textContent = codigo;
+    const info = document.getElementById('cert-codigo-info');
+    if (info) info.textContent = codigo;
     document.getElementById('form-certificado').classList.add('d-none');
     document.getElementById('certificado-gerado').classList.remove('d-none');
 }

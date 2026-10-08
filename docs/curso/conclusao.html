@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.1</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.2</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -163,25 +163,6 @@
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/scripts.js"></script>
-<script>
-document.getElementById('certificate-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const nome  = document.getElementById('cert-nome-input').value.trim();
-    const data  = document.getElementById('cert-data-input').value;
-    if (!nome || !data) {
-        this.classList.add('was-validated');
-        return;
-    }
-    const codigo = await gerarCertificado(nome);
-    document.getElementById('cert-nome').textContent  = nome;
-    document.getElementById('cert-data').textContent  = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
-    document.getElementById('cert-codigo').textContent      = codigo;
-    document.getElementById('cert-codigo-info').textContent = codigo;
-    document.getElementById('form-certificado').classList.add('d-none');
-    document.getElementById('certificado-gerado').classList.remove('d-none');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
 </body>
 </html>
 
