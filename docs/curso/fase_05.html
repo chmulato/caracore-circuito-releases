@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.9</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.10</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -219,22 +219,43 @@ claims = jwt.decode(
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Claims típicas de um id_token OIDC</span>
 <span class="prompt">import</span> time
 
+ISS_ESPERADO = "https://accounts.google.com"
+nonce_enviado = nonce
+
 id_token_payload = {
-    "iss": "https://accounts.google.com",  <span class="comment"># quem emitiu</span>
-    "sub": "103456789012345678901",  <span class="comment"># ID único do usuário</span>
-    "aud": CLIENT_ID,  <span class="comment"># para quem é o token</span>
-    "exp": 1702934400,  <span class="comment"># quando expira (Unix)</span>
-    "iat": 1702930800,  <span class="comment"># quando foi emitido</span>
+    "iss": ISS_ESPERADO,
+    "sub": "103456789012345678901",
+    "aud": CLIENT_ID,
+    "exp": int(time.time()) + 300,
+    "iat": int(time.time()),
+    "nonce": nonce_enviado,
     "name": "Ciclano da Corrida",
     "email": "ciclano@ferradura.dev",
-    "email_verified": True,
 }
 
-<span class="prompt">def</span> piloto_autenticado(claims: dict) -> bool:
-    <span class="prompt">return</span> (
-        claims.get("email_verified") <span class="prompt">is</span> True
-        <span class="prompt">and</span> claims["exp"] > time.time()
-    )</code></pre>
+<span class="prompt">def</span> piloto_autenticado(claims: dict, assinatura_valida: bool) -> bool:
+    <span class="comment"># assinatura conferida com a chave publicada em jwks_uri</span>
+    <span class="prompt">if not</span> assinatura_valida:
+        <span class="prompt">raise</span> ValueError("assinatura inválida: token recusado")
+    <span class="prompt">if</span> claims.get("iss") != ISS_ESPERADO:
+        <span class="prompt">raise</span> ValueError("iss errado: token de outro sistema, recusado")
+    <span class="prompt">if</span> claims.get("aud") != CLIENT_ID:
+        <span class="prompt">raise</span> ValueError("aud errado: token emitido para outra aplicação, recusado")
+    <span class="prompt">if</span> claims.get("exp", 0) <= time.time():
+        <span class="prompt">raise</span> ValueError("token expirado, recusado")
+    <span class="prompt">if</span> claims.get("nonce") != nonce_enviado:
+        <span class="prompt">raise</span> ValueError("nonce não confere, recusado")
+    <span class="prompt">return</span> True
+
+<span class="comment"># Token correto: aceito. email_verified não autentica ninguém.</span>
+piloto_autenticado(id_token_payload, assinatura_valida=True)
+
+<span class="comment"># Exemplo de token recusado: iss de outro sistema</span>
+token_recusado = dict(id_token_payload, iss="https://outro.example")
+<span class="prompt">try</span>:
+    piloto_autenticado(token_recusado, assinatura_valida=True)
+<span class="prompt">except</span> ValueError <span class="prompt">as</span> erro:
+    <span class="prompt">print</span>(erro)</code></pre>
             </div>
 
             <!-- Checklist -->
@@ -245,7 +266,7 @@ id_token_payload = {
                 <div class="checklist-item"><input type="checkbox" id="f5-3"><label for="f5-3">Decodifiquei manualmente o header e payload de um JWT real</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-4"><label for="f5-4">Validei um JWT com <code>python-jose</code> e verifiquei as claims</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-5"><label for="f5-5">Identifiquei as diferenças entre OAuth 2.0 e OIDC</label></div>
-                <div class="checklist-item"><input type="checkbox" id="f5-6"><label for="f5-6">Implementei <code>piloto_autenticado()</code> com verificação de expiração</label></div>
+                <div class="checklist-item"><input type="checkbox" id="f5-6"><label for="f5-6">Implementei <code>piloto_autenticado()</code> conferindo assinatura, iss, aud, exp e nonce</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-7"><label for="f5-7">Criei uma rota HTTP protegida que exige Bearer token</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-8"><label for="f5-8">Explorei o <a href="https://oidc.caracore.com.br" target="_blank" rel="noopener noreferrer">Reino OIDC</a> e resumo os conceitos principais</label></div>
             </div>
