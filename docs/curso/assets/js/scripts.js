@@ -170,4 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('lgpd-banner')?.classList.add('d-none');
         alert('Você optou por não salvar dados. O progresso não será registrado.');
     });
+
+    document.getElementById('lgpd-preferencias')?.addEventListener('click', () => {
+        document.getElementById('lgpd-banner')?.classList.remove('d-none');
+    });
 });
