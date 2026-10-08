@@ -73,13 +73,6 @@ function updateProgress() {
 
 // ── Certificado ──────────────────────────────────────
 
-const INSTRUCTOR_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // "password"
-
-async function sha256(str) {
-    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 function gerarCodigoCertificado(nome) {
     const base = nome.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4).padEnd(4, 'X');
     const num  = Math.floor(Math.random() * 90000000 + 10000000);
@@ -90,12 +83,8 @@ async function gerarCertificado(ev) {
     ev.preventDefault();
     const nome  = document.getElementById('student-name').value.trim();
     const data  = document.getElementById('completion-date').value;
-    const senha = document.getElementById('admin-password').value;
 
     if (!nome) { alert('Por favor, informe o nome do aluno.'); return; }
-
-    const hash = await sha256(senha);
-    if (hash !== INSTRUCTOR_HASH) { alert('❌ Senha administrativa incorreta.'); return; }
 
     const codigo = gerarCodigoCertificado(nome);
     const dataFmt = data
