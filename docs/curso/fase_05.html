@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.8</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.9</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -115,15 +115,18 @@
                     <h4>🔑 Fluxo Authorization Code</h4>
                     <ol class="mb-0">
                         <li><strong>Usuário</strong> clica em "Entrar com Google"</li>
-                        <li><strong>App</strong> redireciona para o provedor com <code>client_id</code> + <code>scope</code></li>
+                        <li><strong>App</strong> gera um <code>code_verifier</code> secreto e envia só o <code>code_challenge</code> (S256): assim um código interceptado não pode ser trocado por outra pessoa</li>
+                        <li><strong>App</strong> envia um <code>nonce</code> aleatório: ele precisa voltar dentro do ID Token para impedir que um token antigo seja reapresentado</li>
                         <li><strong>Usuário</strong> autentica e autoriza</li>
                         <li><strong>Provedor</strong> retorna um <code>authorization_code</code></li>
-                        <li><strong>App</strong> troca o código por <code>access_token</code> + <code>id_token</code></li>
-                        <li><strong>App</strong> usa o token para acessar recursos protegidos</li>
+                        <li><strong>App</strong> troca o código enviando o <code>code_verifier</code> e recebe <code>access_token</code> + <code>id_token</code></li>
+                        <li><strong>App</strong> confere o <code>nonce</code> do ID Token com o que enviou antes de usar a sessão</li>
                     </ol>
                 </div>
 
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Simulador do fluxo OAuth 2.0 em Python</span>
+<span class="prompt">import</span> base64
+<span class="prompt">import</span> hashlib
 <span class="prompt">import</span> secrets
 <span class="prompt">import</span> urllib.parse
 
@@ -131,7 +134,12 @@ CLIENT_ID = "circuito_ferradura_app"
 REDIRECT_URI = "http://localhost:8080/callback"
 SCOPE = "openid profile email"
 
-state = secrets.token_urlsafe(16)  <span class="comment"># proteção CSRF</span>
+code_verifier = secrets.token_urlsafe(64)
+code_challenge = base64.urlsafe_b64encode(
+    hashlib.sha256(code_verifier.encode()).digest()
+).rstrip(b"=").decode()
+nonce = secrets.token_urlsafe(16)
+state = secrets.token_urlsafe(16)
 
 params = {
     "response_type": "code",
@@ -139,12 +147,23 @@ params = {
     "redirect_uri": REDIRECT_URI,
     "scope": SCOPE,
     "state": state,
+    "code_challenge": code_challenge,
+    "code_challenge_method": "S256",
+    "nonce": nonce,
 }
 url = (
     "https://accounts.google.com/o/oauth2/auth?"
     + urllib.parse.urlencode(params)
 )
-<span class="prompt">print</span>(f"→ Redirecionar para:\n{url}")</code></pre>
+<span class="prompt">print</span>(f"→ Redirecionar para:\n{url}")
+
+troca = {
+    "grant_type": "authorization_code",
+    "code": authorization_code,
+    "redirect_uri": REDIRECT_URI,
+    "client_id": CLIENT_ID,
+    "code_verifier": code_verifier,
+}</code></pre>
             </div>
 
             <div class="content-section">
@@ -221,7 +240,7 @@ id_token_payload = {
             <!-- Checklist -->
             <div class="content-section">
                 <h2>✅ Checklist da Fase 5</h2>
-                <div class="checklist-item"><input type="checkbox" id="f5-1"><label for="f5-1">Expliquei os 6 passos do fluxo Authorization Code para alguém</label></div>
+                <div class="checklist-item"><input type="checkbox" id="f5-1"><label for="f5-1">Expliquei os passos do fluxo Authorization Code, incluindo PKCE e nonce, para alguém</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-2"><label for="f5-2">Construí a URL de autorização OAuth 2.0 dinamicamente</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-3"><label for="f5-3">Decodifiquei manualmente o header e payload de um JWT real</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-4"><label for="f5-4">Validei um JWT com <code>python-jose</code> e verifiquei as claims</label></div>
