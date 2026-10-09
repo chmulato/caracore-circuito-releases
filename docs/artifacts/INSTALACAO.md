@@ -50,6 +50,7 @@ Compare os valores com `checksum.sha256` e `checksum.md5`.
 2. Abra `abrir-circuito-ferradura.command`.
 3. Se o macOS bloquear a primeira execução, clique com o botão direito no arquivo, escolha Abrir e confirme.
 4. Alternativa: abra `curso/index.html` no navegador.
+5. A apresentação offline fica em `curso/apresentacao_circuito_ferradura.html`.
 
 ## HTML offline
 
