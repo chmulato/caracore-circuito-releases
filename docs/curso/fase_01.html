@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 1 do Circuito Ferradura: variáveis, condicionais, loops e o ábaco romano em Python, no terreno de Palotina em 1993.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_01.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -58,9 +62,9 @@
                 No código: antes de calcular, precisa-se declarar.
             </p>
 
-            <img src="assets/img/imagem_modulo_01.png"
+            <img src="assets/img/imagem_modulo_01.webp"
                  alt="Fase 1 — O Terreno Vazio · Ábaco Romano em Python"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/12 (0%)</div>
 
@@ -74,7 +78,7 @@
                 </p>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>Variáveis e tipos de dados em Python</li>
                             <li>O sistema bi-quinário do ábaco romano</li>
@@ -85,7 +89,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai criar:</h4>
+                        <h3>O que você vai criar:</h3>
                         <ul>
                             <li>Seu primeiro programa Python interativo</li>
                             <li>Uma calculadora de console</li>
@@ -105,7 +109,7 @@
                     Máximo por ranhura: <strong>9</strong>. Com 5 ranhuras: <strong>0 a 99.999</strong>.
                 </p>
                 <div class="alert-palotina">
-                    <h4>🏁 Metáfora da pista</h4>
+                    <h3>🏁 Metáfora da pista</h3>
                     <p class="mb-0">
                         Cada ranhura é uma curva da pista de Palotina. As contas inferiores são as pedaladas terrestres
                         (esforço do piloto). A conta superior é a rampa — quando você a ativa, o valor salta de 1 para 5,
@@ -132,20 +136,20 @@
                     Armar um número é atribuir. Ler o total é imprimir.
                 </p>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Declarar (terreno vazio)</span>
-<span class="prompt">>>> </span>abaco = CircuitoFerradura()
-<span class="prompt">>>> </span>print(abaco.valor_total())
+<span class="prompt">&gt;&gt;&gt; </span>abaco = CircuitoFerradura()
+<span class="prompt">&gt;&gt;&gt; </span>print(abaco.valor_total())
 <span class="result">0</span>
 
 <span class="comment"># Armar o ano de Palotina (atribuir)</span>
-<span class="prompt">>>> </span>abaco.contornar_paineira(1993)
-<span class="prompt">>>> </span>print(abaco.valor_total())
+<span class="prompt">&gt;&gt;&gt; </span>abaco.contornar_paineira(1993)
+<span class="prompt">&gt;&gt;&gt; </span>print(abaco.valor_total())
 <span class="result">1993</span>
 
 <span class="comment"># Tipos básicos</span>
-<span class="prompt">>>> </span>ano    = 1993          <span class="comment"># int</span>
-<span class="prompt">>>> </span>cidade = "Palotina"   <span class="comment"># str</span>
-<span class="prompt">>>> </span>pista  = True         <span class="comment"># bool</span>
-<span class="prompt">>>> </span>rampa  = 9.8          <span class="comment"># float (gravidade)</span></code></pre>
+<span class="prompt">&gt;&gt;&gt; </span>ano    = 1993          <span class="comment"># int</span>
+<span class="prompt">&gt;&gt;&gt; </span>cidade = "Palotina"   <span class="comment"># str</span>
+<span class="prompt">&gt;&gt;&gt; </span>pista  = True         <span class="comment"># bool</span>
+<span class="prompt">&gt;&gt;&gt; </span>rampa  = 9.8          <span class="comment"># float (gravidade)</span></code></pre>
             </div>
 
             <!-- 1.3 Condicionais -->
@@ -156,16 +160,16 @@
                     Isso é uma condicional: <em>"se o valor ≥ 5, ativa a conta celeste"</em>.
                 </p>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Lógica interna do ábaco: if/elif/else</span>
-<span class="prompt">def </span>armar_ranhura(valor: int) -> dict:
-    if valor < 0 or valor > 9:
+<span class="prompt">def </span>armar_ranhura(valor: int) -&gt; dict:
+    if valor &lt; 0 or valor &gt; 9:
         raise ValueError("Ranhura aceita 0–9 apenas")
 
-    superior = valor >= 5
+    superior = valor &gt;= 5
     inferiores = valor - 5 if superior else valor
 
     return {"superior": superior, "inferiores": inferiores}
 
-<span class="prompt">>>> </span>armar_ranhura(7)
+<span class="prompt">&gt;&gt;&gt; </span>armar_ranhura(7)
 <span class="result">{'superior': True, 'inferiores': 2}</span></code></pre>
             </div>
 
@@ -178,7 +182,7 @@
                 </p>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Percorrer as 5 ranhuras (loop for)</span>
 <span class="prompt">for </span>nome, estado <span class="prompt">in</span> abaco.estado_ranhuras().items():
-    print(f"  {nome:<22}: valor={estado['valor']}")
+    print(f"  {nome:&lt;22}: valor={estado['valor']}")
 
 <span class="result">  Unidades              : valor=3</span>
 <span class="result">  Dezenas               : valor=9</span>
@@ -243,7 +247,7 @@
 
             <!-- Projeto da fase -->
             <div class="alert-terra">
-                <h4>🏎 Projeto da Fase 1</h4>
+                <h3>🏎 Projeto da Fase 1</h3>
                 <p>
                     Implemente a classe <code>CircuitoFerradura</code> completa com:
                     <code>contornar_paineira()</code>, <code>somar()</code>, <code>subtrair()</code>,
@@ -264,6 +268,7 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

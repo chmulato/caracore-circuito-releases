@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 6 do Circuito Ferradura: divisão do lucro em partes iguais, Git e publicação de um site estático.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_06.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -59,9 +63,9 @@
                 resumo da jornada, exemplos criados e próximos passos de estudo.
             </p>
 
-            <img src="assets/img/imagem_modulo_06.png"
+            <img src="assets/img/imagem_modulo_06.webp"
                  alt="Fase 6 — O Lucro na Calçada · Portfólio e GitHub"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/8 (0%)</div>
 
@@ -69,7 +73,7 @@
                 <h2>Objetivos da Fase</h2>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>Estrutura de um <code>README.md</code> simples e claro</li>
                             <li>Commits semânticos: <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>refactor</code></li>
@@ -80,11 +84,11 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai entregar:</h4>
+                        <h3>O que você vai entregar:</h3>
                         <ul>
                             <li>Repositório ou pasta organizada com os exercícios do circuito</li>
                             <li><code>README.md</code> simples com descrição e instruções</li>
-                            <li>GitHub Pages funcionando com <code>pages_ferradura/</code></li>
+                            <li>GitHub Pages publicando a raiz, a pasta /docs ou o site gerado por Actions</li>
                             <li>Distribuição do lucro entre os 6 contribuidores</li>
                         </ul>
                     </div>
@@ -95,13 +99,13 @@
                 <h2>6.1 — Dividindo o Lucro com Código</h2>
                 <p>
                     A metáfora final do Circuito: os 6 amigos na calçada, dividindo o que ganharam.
-                    No código, isso significa distribuir crédito de forma proporcional às contribuições.
+                    No código, isso significa distribuir o valor em partes iguais.
                 </p>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># distribuir_lucro() — a calçada em código</span>
 <span class="prompt">def</span> distribuir_lucro(
     total: float,
     participantes: list[str] | None = None,
-) -> dict[str, float]:
+) -&gt; dict[str, float]:
     <span class="string">"""Distribui lucro igualmente entre os participantes.
 
     Args:
@@ -169,8 +173,8 @@ git commit -m "chore(deps): atualiza scikit-learn para 1.4.0"</code></pre>
 !Python
 !License
 
-> Trilha introdutória de lógica e Python inspirada nas corridas de bicicleta
-> de Palotina-PR, 1993. Material em evolução da Cara Core Informática.
+&gt; Trilha introdutória de lógica e Python inspirada nas corridas de bicicleta
+&gt; de Palotina-PR, 1993. Material em evolução da Cara Core Informática.
 
 ## 🚀 Como rodar
 
@@ -183,7 +187,7 @@ python circuito_ferradura/demo.py
 
 ```
 ├── circuito_ferradura/   # Código-fonte do simulador
-├── pages_ferradura/      # Site de apresentação (GitHub Pages)
+├── docs/                 # GitHub Pages: raiz, /docs ou Actions
 └── testes/               # Suíte de testes pytest
 ```
 
@@ -200,14 +204,14 @@ https://circuito.caracore.com.br/curso/conclusao.html</code></pre>
                 <div class="checklist-item"><input type="checkbox" id="f6-2"><label for="f6-2">Todos os projetos das 6 fases estão no mesmo repositório Git</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f6-3"><label for="f6-3">Usei commits semânticos para registrar as mudanças finais</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f6-4"><label for="f6-4">Escrevi um <code>README.md</code> com badges, descrição e instruções de uso</label></div>
-                <div class="checklist-item"><input type="checkbox" id="f6-5"><label for="f6-5">Configurei GitHub Pages para publicar <code>pages_ferradura/</code></label></div>
+                <div class="checklist-item"><input type="checkbox" id="f6-5"><label for="f6-5">Configurei o GitHub Pages na raiz, na pasta /docs ou por GitHub Actions</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f6-6"><label for="f6-6">Testei o site publicado e todos os links funcionam</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f6-7"><label for="f6-7">Adicionei GIF ou screenshot do console executando o simulador</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f6-8"><label for="f6-8">Registrei o que aprendi e anotei próximos passos de estudo</label></div>
             </div>
 
             <div class="alert-ferradura">
-                <h4>🏆 Você completou o Circuito Ferradura!</h4>
+                <h3>🏆 Você completou o Circuito Ferradura!</h3>
                 <p>
                     Das variáveis na terra vermelha de Palotina até a organização dos exemplos —
                     você chegou ao fim desta trilha introdutória.
@@ -225,6 +229,7 @@ https://circuito.caracore.com.br/curso/conclusao.html</code></pre>
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 4 do Circuito Ferradura: o treino fica separado do teste e a acurácia é medida em dados ainda não vistos.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_04.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -59,9 +63,9 @@
                 melhores a cada pedalada.
             </p>
 
-            <img src="assets/img/imagem_modulo_04.png"
+            <img src="assets/img/imagem_modulo_04.webp"
                  alt="Fase 4 — A Subida de Recuperação · IA e Machine Learning"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/8 (0%)</div>
 
@@ -69,7 +73,7 @@
                 <h2>Objetivos da Fase</h2>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>O que é Machine Learning e quando usá-lo</li>
                             <li>Árvores de decisão com scikit-learn</li>
@@ -81,7 +85,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai criar:</h4>
+                        <h3>O que você vai criar:</h3>
                         <ul>
                             <li>Modelo de classificação de corredores</li>
                             <li>Preditor de resultado do salto (buraco/voo)</li>
@@ -100,14 +104,14 @@
                     uma máquina a decidir.
                 </p>
                 <div class="alert-palotina">
-                    <h4>📊 Dados de treino do Circuito Ferradura</h4>
+                    <h3>📊 Dados de treino do Circuito Ferradura</h3>
                     <p class="mb-0">
                         <strong>Features (entradas):</strong> [velocidade, peso, inclinação_rampa]<br>
                         <strong>Label (saída):</strong> 0 = BURACO, 1 = QUASE, 2 = VOOU, 3 = LENDÁRIO
                     </p>
                 </div>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># Dataset do Circuito Ferradura — corridas históricas</span>
-X_treino = [
+X = [
     [4.5, 65, 15],   <span class="comment"># velocidade, peso (kg), inclinação (°)</span>
     [7.0, 70, 20],
     [9.5, 60, 25],
@@ -117,30 +121,29 @@ X_treino = [
     [6.5, 72, 18],
     [12.0, 58, 35],
 ]
-y_treino = [0, 1, 2, 3, 0, 2, 1, 3]  <span class="comment"># BURACO, QUASE, VOOU, LENDÁRIO</span>
+y = [0, 1, 2, 3, 0, 2, 1, 3]  <span class="comment"># BURACO, QUASE, VOOU, LENDÁRIO</span>
 
 CLASSES = ["BURACO", "QUASE", "VOOU", "LENDÁRIO"]</code></pre>
             </div>
 
             <div class="content-section">
                 <h2>4.2 — Treinando o Modelo</h2>
-                <pre class="console-block code-python"><code class="language-python"><span class="prompt">from</span> sklearn.tree <span class="prompt">import</span> DecisionTreeClassifier
+                <pre class="console-block code-python"><code class="language-python"><span class="prompt">from</span> sklearn.model_selection <span class="prompt">import</span> train_test_split
+<span class="prompt">from</span> sklearn.tree <span class="prompt">import</span> DecisionTreeClassifier
 <span class="prompt">from</span> sklearn.metrics <span class="prompt">import</span> accuracy_score
 
-<span class="comment"># Treinar a árvore de decisão</span>
+X_treino, X_teste, y_treino, y_teste = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
 modelo = DecisionTreeClassifier(max_depth=4, random_state=42)
 modelo.fit(X_treino, y_treino)
 
-<span class="comment"># Prever resultado para um novo piloto</span>
 novo_piloto = [[8.0, 67, 21]]
 predicao = modelo.predict(novo_piloto)
 <span class="prompt">print</span>(f"Resultado previsto: {CLASSES[predicao[0]]}")
-<span class="result">Resultado previsto: VOOU</span>
 
-<span class="comment"># Acurácia no conjunto de treino</span>
-precisao = accuracy_score(y_treino, modelo.predict(X_treino))
-<span class="prompt">print</span>(f"Acurácia: {precisao:.0%}")
-<span class="result">Acurácia: 100%</span></code></pre>
+precisao = accuracy_score(y_teste, modelo.predict(X_teste))
+<span class="prompt">print</span>(f"Acurácia no teste: {precisao:.0%}")</code></pre>
             </div>
 
             <div class="content-section">
@@ -154,7 +157,7 @@ precisao = accuracy_score(y_treino, modelo.predict(X_treino))
         self.modelo = modelo
         self.classes = classes
 
-    <span class="prompt">def</span> analisar(self, velocidade: float, peso: float, inclinacao: float) -> str:
+    <span class="prompt">def</span> analisar(self, velocidade: float, peso: float, inclinacao: float) -&gt; str:
         entrada = [[velocidade, peso, inclinacao]]
         codigo = self.modelo.predict(entrada)[0]
         resultado = self.classes[codigo]
@@ -187,7 +190,7 @@ bot = BotFerradura(modelo, CLASSES)
             </div>
 
             <div class="alert-terra">
-                <h4>🤖 Projeto da Fase 4</h4>
+                <h3>🤖 Projeto da Fase 4</h3>
                 <p class="mb-0">
                     Expanda o dataset para 20 corridas, separe 80% para treino e 20% para teste real,
                     avalie a acurácia no conjunto de teste, e ajuste o <code>max_depth</code> para encontrar
@@ -204,6 +207,7 @@ bot = BotFerradura(modelo, CLASSES)
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

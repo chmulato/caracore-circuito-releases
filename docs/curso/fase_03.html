@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 3 do Circuito Ferradura: física do salto, automação com a biblioteca mcpi e animações de imagem com Pillow.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_03.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -59,9 +63,9 @@
                 com Minecraft Education e animações Pillow.
             </p>
 
-            <img src="assets/img/imagem_modulo_03.png"
+            <img src="assets/img/imagem_modulo_03.webp"
                  alt="Fase 3 — O Salto da Rampa · Minecraft e Pillow"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/10 (0%)</div>
 
@@ -69,7 +73,7 @@
                 <h2>Objetivos da Fase</h2>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>API do Minecraft Education Edition em Python</li>
                             <li>Sistema de coordenadas 3D (x, y, z)</li>
@@ -81,7 +85,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai criar:</h4>
+                        <h3>O que você vai criar:</h3>
                         <ul>
                             <li>Torre automatizada no Minecraft (50 blocos)</li>
                             <li>Pirâmide gerada por loops aninhados</li>
@@ -101,7 +105,7 @@
                     Isso é um bloco de condicionais aplicado à física real.
                 </p>
                 <div class="alert-palotina">
-                    <h4>🏁 Velocidade e resultado</h4>
+                    <h3>🏁 Velocidade e resultado</h3>
                     <ul class="mb-0">
                         <li><strong>v &lt; 5 m/s</strong> → BURACO — nem saiu do chão</li>
                         <li><strong>5 ≤ v &lt; 8 m/s</strong> → QUASE — saltou mas aterrou curto</li>
@@ -110,17 +114,17 @@
                     </ul>
                 </div>
                 <pre class="console-block code-python"><code class="language-python"><span class="comment"># calcular_salto() — da pista para o código</span>
-<span class="prompt">def </span>calcular_salto(velocidade: float) -> str:
-    <span class="prompt">if</span> velocidade < 5:
+<span class="prompt">def </span>calcular_salto(velocidade: float) -&gt; str:
+    <span class="prompt">if</span> velocidade &lt; 5:
         <span class="prompt">return</span> "BURACO"
-    <span class="prompt">if</span> velocidade < 8:
+    <span class="prompt">if</span> velocidade &lt; 8:
         <span class="prompt">return</span> "QUASE"
-    <span class="prompt">if</span> velocidade < 10:
+    <span class="prompt">if</span> velocidade &lt; 10:
         <span class="prompt">return</span> "VOOU"
 
     <span class="prompt">return</span> "LENDÁRIO"
 
-<span class="prompt">>>> </span>calcular_salto(10.5)
+<span class="prompt">&gt;&gt;&gt; </span>calcular_salto(10.5)
 <span class="result">'LENDÁRIO'</span></code></pre>
             </div>
 
@@ -195,7 +199,7 @@ frames[0].save(
             </div>
 
             <div class="alert-terra">
-                <h4>🏎 Projeto da Fase 3</h4>
+                <h3>🏎 Projeto da Fase 3</h3>
                 <p class="mb-0">
                     Crie um simulador completo: 4 pilotos com bicicletas (<code>Bicicleta</code>), cada um com
                     esforço diferente. Calcule o resultado do salto para cada um, gere um GIF animado da trajetória
@@ -212,6 +216,7 @@ frames[0].save(
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

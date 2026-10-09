@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 2 do Circuito Ferradura: somas, subtrações e o jogo da pista, com a bola rebatendo em cima e embaixo.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_02.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -58,9 +62,9 @@
                 Aqui você aprende Pygame — e o jogo Pong nasce na pista.
             </p>
 
-            <img src="assets/img/imagem_modulo_02.png"
+            <img src="assets/img/imagem_modulo_02.webp"
                  alt="Fase 2 — A Curva da Paineira · Pygame e Pong"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/10 (0%)</div>
 
@@ -68,7 +72,7 @@
                 <h2>Objetivos da Fase</h2>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>Instalação e configuração do Pygame</li>
                             <li>Sistema de coordenadas e janela gráfica</li>
@@ -80,7 +84,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai criar:</h4>
+                        <h3>O que você vai criar:</h3>
                         <ul>
                             <li>Uma janela Pygame funcional com fundo verde-pista</li>
                             <li>Uma bola que se move e rebate nas paredes</li>
@@ -101,7 +105,7 @@
                     acumulando frames, atualizando posições e redesenhando a tela.
                 </p>
                 <div class="alert-palotina">
-                    <h4>🏁 Metáfora do loop</h4>
+                    <h3>🏁 Metáfora do loop</h3>
                     <p class="mb-0">
                         Cada frame é uma pedalada. O loop não para enquanto o jogo estiver rodando —
                         assim como o piloto não para de pedalar enquanto está no circuito.
@@ -155,8 +159,8 @@ rodando = True
 
         <span class="comment"># Rebater nas paredes superior e inferior</span>
         <span class="prompt">if</span> (
-            self.y - self.raio <= 0
-            <span class="prompt">or</span> self.y + self.raio >= 600
+            self.y - self.raio &lt;= 0
+            <span class="prompt">or</span> self.y + self.raio &gt;= 600
         ):
             self.vy *= -1  <span class="comment"># inverte — a curva da Paineira</span></code></pre>
             </div>
@@ -167,7 +171,7 @@ rodando = True
                 <div class="checklist-item"><input type="checkbox" id="f2-1"><label for="f2-1">Instalei Pygame e criei a janela verde-pista 800×600</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f2-2"><label for="f2-2">Implementei o game loop com <code>clock.tick(60)</code></label></div>
                 <div class="checklist-item"><input type="checkbox" id="f2-3"><label for="f2-3">Criei a classe <code>Bola</code> com <code>mover()</code> e <code>desenhar()</code></label></div>
-                <div class="checklist-item"><input type="checkbox" id="f2-4"><label for="f2-4">Fiz a bola rebater nas 4 paredes corretamente</label></div>
+                <div class="checklist-item"><input type="checkbox" id="f2-4"><label for="f2-4">Fiz a bola rebater em cima e embaixo; nas laterais, é ponto</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f2-5"><label for="f2-5">Criei a classe <code>Raquete</code> controlada pelo teclado</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f2-6"><label for="f2-6">Implementei colisão bola-raquete com <code>pygame.Rect.colliderect()</code></label></div>
                 <div class="checklist-item"><input type="checkbox" id="f2-7"><label for="f2-7">Adicionei placar com <code>pygame.font</code></label></div>
@@ -177,7 +181,7 @@ rodando = True
             </div>
 
             <div class="alert-terra">
-                <h4>🏎 Projeto da Fase 2</h4>
+                <h3>🏎 Projeto da Fase 2</h3>
                 <p class="mb-0">
                     Crie o jogo <strong>Pong da Pista</strong> completo: duas raquetes, uma bola, placar,
                     rebatimento nas paredes e detecção de ponto. Use as cores do Circuito Ferradura:
@@ -194,6 +198,7 @@ rodando = True
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

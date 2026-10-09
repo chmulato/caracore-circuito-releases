@@ -14,12 +14,20 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Curso Circuito Ferradura: ábaco romano, lógica e Python para jovens, em seis fases inspiradas na pista de Palotina de 1993.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/index.html">
+    <meta property="og:title" content="Circuito Ferradura — Ábaco Romano, Lógica e Python para Jovens">
+    <meta property="og:description" content="Curso Circuito Ferradura: ábaco romano, lógica e Python para jovens, em seis fases inspiradas na pista de Palotina de 1993.">
+    <meta property="og:image" content="https://circuito.caracore.com.br/curso/assets/img/imagem_inicial.webp">
+    <meta property="og:url" content="https://circuito.caracore.com.br/curso/index.html">
+    <meta property="og:type" content="website">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,19 +46,20 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <!-- Hero com imagem de capa -->
 <section class="hero-section">
     <div class="container-fluid p-0">
         <div class="hero-image-container">
-            <img src="assets/img/imagem_inicial.png"
+            <img src="assets/img/imagem_inicial.webp"
                  alt="Circuito Ferradura — Ábaco Romano, Lógica e Python para Jovens"
-                 class="hero-image">
+                 class="hero-image" width="1536" height="1024">
             <div class="hero-overlay">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -116,12 +125,12 @@
             </div>
 
             <div class="alert-palotina mb-5">
-                <h4>🎯 Pré-requisitos</h4>
+                <h3>🎯 Pré-requisitos</h3>
                 <ul>
                     <li>Conhecimentos básicos de informática</li>
                     <li>Interesse em lógica, matemática e programação</li>
                     <li>Acesso a computador com Windows 10/11, macOS ou navegador moderno</li>
-                    <li>Python 3.9 ou superior instalado para os exercícios, ou pacote local do Circuito Ferradura para acompanhar a trilha</li>
+                    <li>Python 3.10 ou superior instalado para os exercícios, ou pacote local do Circuito Ferradura para acompanhar a trilha</li>
                 </ul>
             </div>
 
@@ -131,9 +140,9 @@
                 <p>Cada fase é uma curva da pista. O circuito só termina quando você cruza a linha de chegada.</p>
 
                 <div class="circuit-container mb-4">
-                    <img src="assets/img/imagem_circuito.png"
+                    <img src="assets/img/imagem_circuito.webp"
                          alt="Circuito Ferradura — Mapa das 6 Fases"
-                         class="circuit-background-image">
+                         class="circuit-background-image" width="1536" height="1024" loading="lazy">
                     <svg class="circuit-svg" viewBox="0 0 800 750" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 150 80 Q 50 80 50 375 Q 50 620 150 620 L 650 620 Q 750 620 750 375 Q 750 80 650 80"
                               class="circuit-path" fill="none" stroke-dasharray="8,4">
@@ -150,7 +159,7 @@
                     <a href="fase_01.html" class="circuit-node" data-fase="1">
                         <div class="node-circle"><span class="node-number">01</span></div>
                         <div class="node-content">
-                            <h5>O Terreno Vazio</h5>
+                            <h3>O Terreno Vazio</h3>
                             <span class="badge-duracao">8h</span>
                             <p class="node-description">Variáveis, condicionais, loops e o Ábaco Romano em Python.</p>
                         </div>
@@ -159,7 +168,7 @@
                     <a href="fase_02.html" class="circuit-node" data-fase="2">
                         <div class="node-circle"><span class="node-number">02</span></div>
                         <div class="node-content">
-                            <h5>A Curva da Paineira</h5>
+                            <h3>A Curva da Paineira</h3>
                             <span class="badge-duracao">8h</span>
                             <p class="node-description">Pygame, coordenadas, eventos e o Pong da pista.</p>
                         </div>
@@ -168,7 +177,7 @@
                     <a href="fase_03.html" class="circuit-node" data-fase="3">
                         <div class="node-circle"><span class="node-number">03</span></div>
                         <div class="node-content">
-                            <h5>O Salto da Rampa</h5>
+                            <h3>O Salto da Rampa</h3>
                             <span class="badge-duracao">8h</span>
                             <p class="node-description">Minecraft Education, Pillow e animações GIF automáticas.</p>
                         </div>
@@ -177,7 +186,7 @@
                     <a href="fase_04.html" class="circuit-node" data-fase="4">
                         <div class="node-circle"><span class="node-number">04</span></div>
                         <div class="node-content">
-                            <h5>A Subida de Recuperação</h5>
+                            <h3>A Subida de Recuperação</h3>
                             <span class="badge-duracao">6h</span>
                             <p class="node-description">IA, Machine Learning e bots inteligentes na subida.</p>
                         </div>
@@ -186,7 +195,7 @@
                     <a href="fase_05.html" class="circuit-node" data-fase="5">
                         <div class="node-circle"><span class="node-number">05</span></div>
                         <div class="node-content">
-                            <h5>A Grande Corrida</h5>
+                            <h3>A Grande Corrida</h3>
                             <span class="badge-duracao">6h</span>
                             <p class="node-description">OAuth 2.0, OIDC, JWT e segurança digital aplicada.</p>
                         </div>
@@ -195,7 +204,7 @@
                     <a href="fase_06.html" class="circuit-node" data-fase="6">
                         <div class="node-circle"><span class="node-number">06</span></div>
                         <div class="node-content">
-                            <h5>O Lucro na Calçada</h5>
+                            <h3>O Lucro na Calçada</h3>
                             <span class="badge-duracao">4h</span>
                             <p class="node-description">Organização do aprendizado, GitHub e registro local de conclusão.</p>
                         </div>
@@ -204,7 +213,7 @@
             </div>
 
             <div class="alert-ferradura mb-5">
-                <h4>O que você vai praticar</h4>
+                <h3>O que você vai praticar</h3>
                 <ul class="mb-0">
                     <li><strong>Ábaco Romano funcional em Python</strong> — escrito por você, do zero</li>
                     <li><strong>Jogo Pong simples</strong> — tela, controles e placar</li>
@@ -226,6 +235,7 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

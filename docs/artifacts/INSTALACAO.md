@@ -1,66 +1,67 @@
-# Circuito Ferradura - Instalacao (Windows e macOS)
+# Circuito Ferradura — Instalação (Windows e macOS)
+
+Versão: v2.0.24
 
 Arquivos desta entrega:
+
 - CircuitoFerradura.exe
-- circuito-ferradura-site-2.0.23.zip
-- circuito-ferradura-windows-2.0.23.zip
-- circuito-ferradura-macos-2.0.23.zip
+- circuito-ferradura-windows-2.0.24.zip
+- circuito-ferradura-macos-2.0.24.zip
+- circuito-ferradura-site-2.0.24.zip
 - apresentacao_circuito_ferradura.html
 - checksum.sha256
 - checksum.md5
-- INSTALACAO.md (este arquivo)
 
-## Validacao de integridade
+O executável não tem assinatura digital. O demo de console existe só no Windows. No macOS, o pacote abre o curso no navegador.
 
-No PowerShell, na pasta de artefatos:
+## Validação de integridade
+
+No PowerShell, na pasta dos artefatos:
 
 ```powershell
 Get-FileHash -Path .\CircuitoFerradura.exe -Algorithm SHA256
-Get-FileHash -Path .\CircuitoFerradura.exe -Algorithm MD5
+Get-FileHash -Path .\circuito-ferradura-windows-2.0.24.zip -Algorithm SHA256
+Get-FileHash -Path .\circuito-ferradura-macos-2.0.24.zip -Algorithm SHA256
+Get-FileHash -Path .\circuito-ferradura-site-2.0.24.zip -Algorithm SHA256
 ```
 
-Compare os valores com os arquivos `checksum.sha256` e `checksum.md5`.
+No macOS ou no Linux:
 
-## Requisitos Windows
+```bash
+shasum -a 256 CircuitoFerradura.exe
+shasum -a 256 circuito-ferradura-windows-2.0.24.zip
+shasum -a 256 circuito-ferradura-macos-2.0.24.zip
+shasum -a 256 circuito-ferradura-site-2.0.24.zip
+```
 
-- Windows 10 ou superior (64 bits)
-- 200 MB de espaco livre
-- Conexao com internet: nao necessaria
+Compare os valores com `checksum.sha256` e `checksum.md5`.
 
-## Execucao do aplicativo Windows
+## Windows
 
-1. Execute `CircuitoFerradura.exe` em duplo clique.
-2. Se o Windows SmartScreen exibir um aviso, confirme apenas se o arquivo foi baixado do canal oficial e os hashes conferem.
-3. O aplicativo abre localmente em uma janela de terminal e pode abrir o curso completo no navegador.
+1. Descompacte `circuito-ferradura-windows-2.0.24.zip`.
+2. Execute `CircuitoFerradura.exe` com duplo clique.
+3. Se o Windows SmartScreen avisar que o editor é desconhecido, confirme só se o arquivo veio do canal oficial e os hashes conferem.
+4. O curso offline fica em `curso/index.html`, ao lado do executável.
+5. A apresentação offline fica em `curso/apresentacao_circuito_ferradura.html`.
 
-Para uma entrega completa, use `circuito-ferradura-windows-2.0.23.zip`: ele contem o executavel, `curso/` e `assets/` no mesmo pacote.
+## macOS
 
-## Execucao no macOS
+1. Descompacte `circuito-ferradura-macos-2.0.24.zip`.
+2. Abra `abrir-circuito-ferradura.command`.
+3. Se o macOS bloquear a primeira execução, clique com o botão direito no arquivo, escolha Abrir e confirme.
+4. Alternativa: abra `curso/index.html` no navegador.
 
-1. Baixe `circuito-ferradura-macos-2.0.23.zip`.
-2. Descompacte o arquivo.
-3. Abra `abrir-circuito-ferradura.command`.
-4. Se o macOS bloquear a primeira execucao, clique com o botao direito no arquivo, escolha Abrir e confirme.
+## HTML offline
 
-Alternativa: abra `curso/index.html` diretamente no Safari, Chrome ou Firefox.
-
-## Uso no navegador (HTML completo)
-
-1. Descompacte `circuito-ferradura-site-2.0.23.zip`.
-2. Abra `curso/index.html` no navegador para acessar a apresentacao atualizada.
-3. Para a apresentacao individual, abra `apresentacao_circuito_ferradura.html`.
-
-## Desinstalacao
-
-Remova os arquivos baixados/descompactados. Nao ha instalador MSI nem servico residente nesta entrega.
+1. Descompacte `circuito-ferradura-site-2.0.24.zip`.
+2. Abra `curso/index.html`.
+3. A apresentação desse pacote é `curso/apresentacao_circuito_ferradura.html`.
 
 ## Canal oficial
 
-- Pagina de download: ../download.html
-- Licenca: ../licenca-uso.html
-- Suporte (loja Circuito Ferradura): https://circuito.caracore.com.br/canal-feedback.html
+- Download: https://circuito.caracore.com.br/download.html
+- Licença: https://circuito.caracore.com.br/licenca-uso.html
+- Feedback: https://circuito.caracore.com.br/canal-feedback.html
+- Apresentação no site: https://circuito.caracore.com.br/curso/apresentacao_circuito_ferradura.html
 
----
-
-> Versao: v2.0.23
-> Cara Core Informatica — loja: https://circuito.caracore.com.br/
+Cara Core Informática — https://circuito.caracore.com.br/

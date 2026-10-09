@@ -5,7 +5,7 @@
     --bg-card: #252a30;
     --bg-elevated: #2d333b;
     --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
+    --text-secondary: #d0d7de;
     --accent-blue: #58a6ff;
     --accent-gold: #d4a853;
     --accent-green: #3fb950;
@@ -149,3 +149,27 @@ body.page-portal header p { font-size: 0.9rem; color: var(--text-secondary); }
 .nav-links { margin-top: 28px; font-size: 0.9rem; }
 .nav-links a { color: var(--accent-cyan); text-decoration: none; }
 .nav-links a:hover { text-decoration: underline; }
+
+p a,
+li a,
+.subtitle a,
+.tagline a,
+.hero-desc a,
+.intro a,
+.lgpd a,
+.block p a,
+.block li a,
+footer a,
+.download-meta a,
+.breadcrumb a,
+.back a,
+.nav-links a,
+.cta a {
+    text-decoration: underline;
+    text-underline-offset: .12em;
+}
+header .tagline,
+.hero-cta .hero-label {
+    color: #f6e2a8;
+}
+.no-phone strong { color: #fde68a; }

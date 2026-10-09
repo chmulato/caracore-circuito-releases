@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Fase 5 do Circuito Ferradura: OAuth 2.0 com PKCE, OIDC, nonce e validação de JWT com a biblioteca PyJWT.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/curso/fase_05.html">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,11 +39,12 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -58,9 +62,9 @@
                 são os portões da segurança digital — saber abri-los é chegar primeiro.
             </p>
 
-            <img src="assets/img/imagem_modulo_05.png"
+            <img src="assets/img/imagem_modulo_05.webp"
                  alt="Fase 5 — A Grande Corrida · OAuth 2.0, OIDC e JWT"
-                 class="img-fase">
+                 class="img-fase" width="1536" height="1024" loading="lazy">
 
             <div id="progress-indicator" class="alert">Progresso: 0/8 (0%)</div>
 
@@ -68,7 +72,7 @@
                 <h2>Objetivos da Fase</h2>
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h4>O que você vai aprender:</h4>
+                        <h3>O que você vai aprender:</h3>
                         <ul>
                             <li>OAuth 2.0: fluxo de autorização passo a passo</li>
                             <li>OIDC (OpenID Connect): identidade sobre OAuth</li>
@@ -76,21 +80,21 @@
                             <li>Scopes, claims e o princípio do menor privilégio</li>
                             <li>Diferença entre autenticação e autorização</li>
                             <li>Provedores OIDC: Google, GitHub, Microsoft</li>
-                            <li>Biblioteca <code>python-jose</code> para JWT em Python</li>
+                            <li>Biblioteca <code>PyJWT</code> para JWT em Python</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>O que você vai criar:</h4>
+                        <h3>O que você vai criar:</h3>
                         <ul>
                             <li>Decodificador de JWT manual (base64url)</li>
                             <li>Simulador do fluxo OAuth 2.0</li>
-                            <li>Validador de token OIDC com <code>python-jose</code></li>
+                            <li>Validador de token OIDC com <code>PyJWT</code></li>
                             <li>Dashboard HTTP com rota protegida</li>
                         </ul>
                     </div>
                 </div>
                 <div class="alert-ferradura mt-4">
-                    <h4>🏰 Convite ao Reino OIDC</h4>
+                    <h3>🏰 Convite ao Reino OIDC</h3>
                     <p>
                         Para reforçar OAuth 2.0, OIDC e JWT com uma narrativa complementar,
                         visite o Reino OIDC antes de seguir para o projeto da fase.
@@ -112,7 +116,7 @@
                 </p>
 
                 <div class="alert-palotina">
-                    <h4>🔑 Fluxo Authorization Code</h4>
+                    <h3>🔑 Fluxo Authorization Code</h3>
                     <ol class="mb-0">
                         <li><strong>Usuário</strong> clica em "Entrar com Google"</li>
                         <li><strong>App</strong> gera um <code>code_verifier</code> secreto e envia só o <code>code_challenge</code> (S256): assim um código interceptado não pode ser trocado por outra pessoa</li>
@@ -151,10 +155,13 @@ params = {
     "code_challenge_method": "S256",
     "nonce": nonce,
 }
-url = (
-    "https://accounts.google.com/o/oauth2/auth?"
-    + urllib.parse.urlencode(params)
-)
+import json
+import urllib.request
+descoberta = json.load(urllib.request.urlopen(
+    "https://accounts.google.com/.well-known/openid-configuration"
+))
+authorization_endpoint = descoberta["authorization_endpoint"]
+url = authorization_endpoint + "?" + urllib.parse.urlencode(params)
 <span class="prompt">print</span>(f"→ Redirecionar para:\n{url}")
 
 troca = {
@@ -182,10 +189,10 @@ troca = {
 <span class="prompt">import</span> base64
 <span class="prompt">import</span> json
 
-<span class="prompt">def</span> decodificar_jwt(token: str) -> dict:
+<span class="prompt">def</span> decodificar_jwt(token: str) -&gt; dict:
     partes = token.split(".")
 
-    <span class="prompt">def</span> decode_b64(valor: str) -> dict:
+    <span class="prompt">def</span> decode_b64(valor: str) -&gt; dict:
         padding = "=" * (-len(valor) % 4)
         dados = base64.urlsafe_b64decode(valor + padding)
         <span class="prompt">return</span> json.loads(dados)
@@ -199,14 +206,19 @@ troca = {
         "assinatura": partes[2][:20] + "...",
     }
 
-<span class="comment"># Exemplo com python-jose (validação com chave pública)</span>
-<span class="prompt">from</span> jose <span class="prompt">import</span> jwt
+<span class="comment"># Exemplo com PyJWT (validação com a chave publicada)</span>
+<span class="prompt">import</span> jwt
+jwks = jwt.PyJWKClient(jwks_uri)
+key = jwks.get_signing_key_from_jwt(token).key
 claims = jwt.decode(
     token,
-    chave_publica,
+    key,
     algorithms=["RS256"],
     audience=CLIENT_ID,
+    issuer=ISSUER,
 )
+<span class="prompt">if</span> claims.get("nonce") != nonce_enviado:
+    <span class="prompt">raise</span> ValueError("nonce não confere, recusado")
 <span class="prompt">print</span>(f"Bem-vindo, {claims['name']}!")</code></pre>
             </div>
 
@@ -233,7 +245,7 @@ id_token_payload = {
     "email": "ciclano@ferradura.dev",
 }
 
-<span class="prompt">def</span> piloto_autenticado(claims: dict, assinatura_valida: bool) -> bool:
+<span class="prompt">def</span> piloto_autenticado(claims: dict, assinatura_valida: bool) -&gt; bool:
     <span class="comment"># assinatura conferida com a chave publicada em jwks_uri</span>
     <span class="prompt">if not</span> assinatura_valida:
         <span class="prompt">raise</span> ValueError("assinatura inválida: token recusado")
@@ -241,7 +253,7 @@ id_token_payload = {
         <span class="prompt">raise</span> ValueError("iss errado: token de outro sistema, recusado")
     <span class="prompt">if</span> claims.get("aud") != CLIENT_ID:
         <span class="prompt">raise</span> ValueError("aud errado: token emitido para outra aplicação, recusado")
-    <span class="prompt">if</span> claims.get("exp", 0) <= time.time():
+    <span class="prompt">if</span> claims.get("exp", 0) &lt;= time.time():
         <span class="prompt">raise</span> ValueError("token expirado, recusado")
     <span class="prompt">if</span> claims.get("nonce") != nonce_enviado:
         <span class="prompt">raise</span> ValueError("nonce não confere, recusado")
@@ -264,7 +276,7 @@ token_recusado = dict(id_token_payload, iss="https://outro.example")
                 <div class="checklist-item"><input type="checkbox" id="f5-1"><label for="f5-1">Expliquei os passos do fluxo Authorization Code, incluindo PKCE e nonce, para alguém</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-2"><label for="f5-2">Construí a URL de autorização OAuth 2.0 dinamicamente</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-3"><label for="f5-3">Decodifiquei manualmente o header e payload de um JWT real</label></div>
-                <div class="checklist-item"><input type="checkbox" id="f5-4"><label for="f5-4">Validei um JWT com <code>python-jose</code> e verifiquei as claims</label></div>
+                <div class="checklist-item"><input type="checkbox" id="f5-4"><label for="f5-4">Validei um JWT com <code>PyJWT</code> e verifiquei as claims</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-5"><label for="f5-5">Identifiquei as diferenças entre OAuth 2.0 e OIDC</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-6"><label for="f5-6">Implementei <code>piloto_autenticado()</code> conferindo assinatura, iss, aud, exp e nonce</label></div>
                 <div class="checklist-item"><input type="checkbox" id="f5-7"><label for="f5-7">Criei uma rota HTTP protegida que exige Bearer token</label></div>
@@ -272,11 +284,11 @@ token_recusado = dict(id_token_payload, iss="https://outro.example")
             </div>
 
             <div class="alert-terra">
-                <h4>🔐 Projeto da Fase 5</h4>
+                <h3>🔐 Projeto da Fase 5</h3>
                 <p class="mb-0">
                     Crie um micro-servidor Flask com duas rotas: <code>/login</code> (redireciona para Google OAuth)
                     e <code>/dashboard</code> (protegida — exige <code>id_token</code> válido na sessão).
-                    Use <code>python-jose</code> para validar o token e exiba o nome do piloto autenticado.
+                    Use <code>PyJWT</code> para validar o token e exiba o nome do piloto autenticado.
                 </p>
             </div>
 
@@ -289,6 +301,7 @@ token_recusado = dict(id_token_payload, iss="https://outro.example")
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         <div class="row">

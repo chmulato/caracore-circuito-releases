@@ -177,4 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('lgpd-preferencias')?.addEventListener('click', () => {
         document.getElementById('lgpd-banner')?.classList.remove('d-none');
     });
+
+    document.getElementById('btn-imprimir-registro')?.addEventListener('click', () => {
+        window.print();
+    });
 });

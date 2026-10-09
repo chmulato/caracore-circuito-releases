@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <base href="https://circuito.caracore.com.br/curso/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circuito Ferradura — Demo Interativo Console</title>
+    <title>Apresentação avulsa — Circuito Ferradura</title>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         :root {
-            --verde-pista: #1a7a3c;
-            --verde-claro: #2da858;
+            --verde-pista: #0e5a28;
+            --verde-claro: #146b32;
             --terra-vermelha: #b03a2e;
             --amarelo-palotina: #f4c430;
             --cinza-console: #1e1e1e;
@@ -21,7 +22,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--verde-pista) 0%, var(--verde-claro) 60%, var(--amarelo-palotina) 100%);
+            background: linear-gradient(135deg, #0c3d1e 0%, #146b32 100%);
             color: white;
             padding: 5rem 0 4rem;
         }
@@ -36,7 +37,7 @@
         }
 
         .hero h1 { font-size: 3.2rem; font-weight: 800; }
-        .hero .subtitulo { font-size: 1.25rem; opacity: .9; }
+        .hero .subtitulo { font-size: 1.25rem; color: #ffffff; }
 
         .console-block {
             background:
@@ -78,20 +79,20 @@
         }
         .card-fase:hover { transform: translateY(-4px); }
         .card-fase .card-header {
-            background-color: var(--verde-pista);
+            background-color: #0e5a28;
             color: white;
             border-radius: 1rem 1rem 0 0 !important;
             font-weight: 700;
         }
 
         .badge-fase {
-            background-color: var(--verde-claro);
-            color: white;
+            background-color: #0e5a28;
+            color: #ffffff;
         }
 
         .btn-download {
-            background-color: var(--verde-pista);
-            border-color: var(--verde-pista);
+            background-color: #0e5a28;
+            border-color: #0e5a28;
             color: white;
             font-size: 1.15rem;
             font-weight: 700;
@@ -99,13 +100,13 @@
             padding: .75rem 2rem;
         }
         .btn-download:hover {
-            background-color: var(--verde-claro);
-            border-color: var(--verde-claro);
-            color: white;
+            background-color: #0c3d1e;
+            border-color: #0c3d1e;
+            color: #ffffff;
         }
 
         .secao-titulo {
-            color: var(--verde-pista);
+            color: #0e5a28;
             font-weight: 800;
             position: relative;
             padding-bottom: .5rem;
@@ -140,7 +141,7 @@
 
         .tag-versao {
             background: #e8f5e9;
-            color: var(--verde-pista);
+            color: #0e5a28;
             border: 1px solid var(--verde-claro);
             border-radius: .4rem;
             padding: .15rem .6rem;
@@ -205,13 +206,21 @@
     </style>
   <link rel="stylesheet" href="../assets/css/caracore-core-typography.css">
   <link rel="stylesheet" href="../assets/css/caracore-institutional-components.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="description" content="Apresentação avulsa do Circuito Ferradura, com atalhos para o curso publicado no site da Cara Core.">
+    <link rel="canonical" href="https://circuito.caracore.com.br/artifacts/apresentacao_circuito_ferradura.html">
+    <meta property="og:title" content="Apresentação avulsa — Circuito Ferradura">
+    <meta property="og:description" content="Apresentação avulsa do Circuito Ferradura, com atalhos para o curso publicado no site da Cara Core.">
+    <meta property="og:image" content="https://circuito.caracore.com.br/curso/assets/img/imagem_inicial.webp">
+    <meta property="og:url" content="https://circuito.caracore.com.br/artifacts/apresentacao_circuito_ferradura.html">
+    <meta property="og:type" content="website">
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.23</span></a>
+        <a class="navbar-brand" href="index.html">🏁 Circuito Ferradura<span class="tag-versao">v2.0.24</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -229,11 +238,13 @@
                         <li><a class="dropdown-item" href="fase_06.html">Fase 6 — O Lucro na Calçada</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="conclusao.html">Certificado</a></li>
+                <li class="nav-item"><a class="nav-link" href="mundo_do_conhecimento.html">Pista</a></li>
+                <li class="nav-item"><a class="nav-link" href="conclusao.html">Registro de conclusão</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<main>
 
 <!-- Hero -->
 <section class="hero text-center">
@@ -263,7 +274,7 @@
                 <pre class="console-block code-console"><code class="language-console"><span class="borda">██████████████████████████████████████████████████████████</span>
 <span class="borda">█                  🏁 CIRCUITO FERRADURA                   █</span>
 <span class="borda">█          Palotina, PR — Terra Vermelha 1993              █</span>
-<span class="borda">█              Ábaco Romano em Python  v2.0.23              █</span>
+<span class="borda">█              Ábaco Romano em Python  v2.0.24              █</span>
 <span class="borda">██████████████████████████████████████████████████████████</span>
 
 <span class="prompt">╔══════════════════════════════════════════╗
@@ -426,23 +437,23 @@
 <!-- Requisitos -->
 <section class="py-4" style="background:#f0faf2;">
     <div class="container text-center">
-        <h5 class="mb-3 fw-bold" style="color: var(--verde-pista);">Requisitos</h5>
+        <h3 class="mb-3 fw-bold" style="color: #0e5a28;">Requisitos do demo</h3>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-            <span class="badge bg-secondary fs-6">🖥 Windows 10 / 11</span>
-            <span class="badge bg-secondary fs-6">🍎 macOS</span>
-            <span class="badge bg-secondary fs-6">📦 Sem instalação</span>
-            <span class="badge bg-secondary fs-6">🐍 Python embutido</span>
-            <span class="badge bg-secondary fs-6">⌨ Terminal (CMD ou PowerShell)</span>
+            <span class="badge bg-secondary fs-6">Windows 10 / 11</span>
+            <span class="badge bg-secondary fs-6">Python embutido no executável</span>
+            <span class="badge bg-secondary fs-6">Terminal (CMD ou PowerShell)</span>
         </div>
+        <p class="mt-3 mb-0">No macOS, o pacote abre o curso no navegador.</p>
     </div>
 </section>
 
 <!-- Footer -->
+</main>
 <footer class="py-4 text-center">
     <div class="container">
         <p class="mb-1">
             <strong style="color:white;">Circuito Ferradura</strong>
-            <span class="tag-versao ms-2">v2.0.23</span>
+            <span class="tag-versao ms-2">v2.0.24</span>
         </p>
         <p class="mb-0" style="font-size:.85rem;">
             Produto: <em>curso local + console demo</em> · Pacote: <code>circuito_ferradura</code> ·
